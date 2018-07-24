@@ -37,7 +37,7 @@ const SideBar = () => (
                 style={{ textDecoration: 'none' }}
             >
                 <MenuItem>
-                    Wyszuka
+                    Wyszukaj
                 </MenuItem>
             </Link>
             <Link
