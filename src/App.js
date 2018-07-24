@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 
+import MessengersPaper from './components/MessengersPaper'
 import MessagesView from './views/MessagesView'
 import LastMessagesView from './views/LastMessagesView'
 import FindMessagesView from './views/FindMessagesView'
