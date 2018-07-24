@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 
-import MessagesView from './MessagesView'
-import LastMessagesView from './LastMessagesView'
-import FindMessagesView from './FindMessagesView'
-import FavouritesMessagesView from './FavouritesMessagesView'
-import ContactsView from './ContactsView'
+import MessagesView from './views/MessagesView'
+import LastMessagesView from './views/LastMessagesView'
+import FindMessagesView from './views/FindMessagesView'
+import FavouritesMessagesView from './views/FavouritesMessagesView'
+import ContactsView from './views/ContactsView'
 import SideBar from './SideBar'
 
 class App extends React.Component {
