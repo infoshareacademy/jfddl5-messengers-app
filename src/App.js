@@ -1,20 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import AppBar from 'material-ui/AppBar'
 
-class App extends Component {
+import MessengersPaper from './components/MessengersPaper'
+import MessagesView from './views/MessagesView'
+import LastMessagesView from './views/LastMessagesView'
+import FindMessagesView from './views/FindMessagesView'
+import FavouritesMessagesView from './views/FavouritesMessagesView'
+import ContactsView from './views/ContactsView'
+import SideBar from './SideBar'
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Router>
+          <div>
+            <AppBar
+              title={'Messengers'}
+            />
+            <SideBar
+
+            />
+
+            <Route path={'/contacts'} component={ContactsView} />
+            <Route path={'/messages'} component={MessagesView} />
+            <Route path={'/last-messages'} component={LastMessagesView} />
+            <Route path={'/find-messages'} component={FindMessagesView} />
+            <Route path={'/favourite-messages'} component={FavouritesMessagesView} />
+          </div>
+        </Router>
       </div>
-    );
+    )
   }
 }
 
