@@ -7,6 +7,7 @@ import LastMessagesView from './LastMessagesView'
 import FindMessagesView from './FindMessagesView'
 import FavouritesMessagesView from './FavouritesMessagesView'
 import ContactsView from './ContactsView'
+import SideBar from './SideBar'
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,9 @@ class App extends React.Component {
           <div>
             <AppBar
               title={'Messengers'}
+            />
+            <SideBar
+
             />
 
             <Route path={'/contacts'} component={ContactsView} />
