@@ -8,7 +8,7 @@ import LastMessagesView from './views/LastMessagesView'
 import FindMessagesView from './views/FindMessagesView'
 import FavouritesMessagesView from './views/FavouritesMessagesView'
 import ContactsView from './views/ContactsView'
-import SideBar from './SideBar'
+import SideBar from './Navigation/SideBar'
 
 class App extends React.Component {
   render() {
