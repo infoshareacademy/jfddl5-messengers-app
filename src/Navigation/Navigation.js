@@ -3,6 +3,7 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import SideBar from './SideBar'
 
+
 class Navigation extends React.Component {
     state = {
         isOpen: true
@@ -18,6 +19,8 @@ class Navigation extends React.Component {
                 <AppBar
                     title={'Messengers'}
                     onLeftIconButtonClick={this.toggleHandler}
+         
+
                 />
                 <SideBar
                     toggleHandler={this.toggleHandler}
