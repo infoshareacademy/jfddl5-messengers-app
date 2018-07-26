@@ -16,7 +16,6 @@ class App extends React.Component {
         <Router>
           <div>
             <Navigation />
-
             <Route path={'/contacts'} component={ContactsView} />
             <Route path={'/messages'} component={MessagesView} />
             <Route path={'/last-messages'} component={LastMessagesView} />
