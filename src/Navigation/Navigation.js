@@ -6,7 +6,7 @@ import SideBar from './SideBar'
 
 class Navigation extends React.Component {
     state = {
-        isOpen: true
+        isOpen: false
     }
     toggleHandler = () => {
         this.setState({
@@ -19,7 +19,6 @@ class Navigation extends React.Component {
                 <AppBar
                     title={'Messengers'}
                     onLeftIconButtonClick={this.toggleHandler}
-         
 
                 />
                 <SideBar
