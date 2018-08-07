@@ -1,7 +1,16 @@
 import React from 'react'
+import TextField from 'material-ui/TextField';
+
 
 const MessagesView = () => (
-    <h1>MessagesView</h1>
+    <div>
+        <TextField
+            hintText=""
+            multiLine={true}
+            rowsMax={4}
+            fullWidth={true}
+        />
+    </div>
 )
 
 export default MessagesView
