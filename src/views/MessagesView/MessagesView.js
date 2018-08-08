@@ -9,7 +9,7 @@ const displayStyles = {
 }
 
 const containerStyles = {
-
+    
 }
 
 const style = {
@@ -24,13 +24,13 @@ const style = {
 const MessagesView = () => (
     <div style={containerStyles}>
         <div style={displayStyles}>
-        <TextField
-            hintText="Type your message ..."
-            multiLine={true}
-            rowsMax={4}
-            fullWidth={true}
-        />
-        <FlatButton label="Send" />
+            <TextField
+                hintText="Type your message ..."
+                multiLine={true}
+                rowsMax={4}
+                fullWidth={true}
+            />
+            <FlatButton label="Send" />
         </div>
         <div><br />
             <Paper style={style} zDepth={1} />
