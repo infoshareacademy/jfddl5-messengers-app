@@ -13,6 +13,7 @@ const containerStyles = {
 }
 
 const style = {
+    display: 'flex',
     height: '80vh',
     width: 'calc(100vw-20)',
     margin: 20,
