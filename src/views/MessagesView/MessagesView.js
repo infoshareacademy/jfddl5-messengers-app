@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
+import List from '../../components/List'
 
 const displayStyles = {
     display: 'flex',
@@ -29,11 +30,13 @@ const MessagesView = () => (
             multiLine={true}
             rowsMax={4}
             fullWidth={true}
-        />
+            />
         <FlatButton label="Send" />
         </div>
         <div><br />
-            <Paper style={style} zDepth={1} />
+            <Paper style={style} zDepth={1} >
+            <List />
+            </Paper>
         </div>
     </div>
 )
