@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 class Messeges extends React.Component {
     state = {
         messeges: [
@@ -14,12 +16,15 @@ class Messeges extends React.Component {
                 text: 'Hello Tata',
                 date: 1532616661063,
                 favourite: true
-            }]
+            }],
+        isAddedToFavourite: false
     }
 
     render() {
         return (
             <div>
+
+
             </div>
         )
     }
