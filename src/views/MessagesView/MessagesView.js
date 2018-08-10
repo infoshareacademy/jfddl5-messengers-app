@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
+import List from '../../components/List'
 import { ListItem } from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 
@@ -24,41 +25,24 @@ const style = {
 };
 
 
-
-class MessagesView extends React.Component {
-    state = {
-        favourite: false
-    }
-
-    isFavourite = () => {
-        this.setState({
-            favourite: !this.state.favourite
-        })
-    }
-    
-
-
-    render() {
-        return (
-            <div style={containerStyles}>
-                <div style={displayStyles}>
-                    <TextField
-                        hintText="Type your message ..."
-                        multiLine={true}
-                        rowsMax={4}
-                        fullWidth={true}
-                    />
-                    <FlatButton label="Send" />
-                </div>
-                <div><br />
-                    <Paper style={style} zDepth={1}>
-                        < ListItem primaryText="Favourite" leftIcon={<ActionGrade />} />
-                    </Paper>
-                </div>
-            </div>
-        )
-    }
-
-}
+const MessagesView = () => (
+    <div style={containerStyles}>
+        <div style={displayStyles}>
+            <TextField
+                hintText="Type your message ..."
+                multiLine={true}
+                rowsMax={4}
+                fullWidth={true}
+            />
+            <FlatButton label="Send" />
+        </div>
+        <div><br />
+            <Paper style={style} zDepth={1}>
+                <List />
+                < ListItem primaryText="Favourite" leftIcon={<ActionGrade />} />
+            </Paper>
+        </div>
+    </div>
+)
 
 export default MessagesView
