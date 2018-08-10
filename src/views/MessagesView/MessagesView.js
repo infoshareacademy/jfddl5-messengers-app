@@ -27,6 +27,17 @@ class MessagesView extends React.Component {
         messageText: ''
     }
 
+    newStateMessageText = () => {
+
+    }
+
+    handleChange = (event) => {
+        const text = event.target.value
+        this.setState({
+            messageText: text
+        })
+    }
+    
     render(){
         return (
             <div style={containerStyles}>
@@ -36,9 +47,13 @@ class MessagesView extends React.Component {
                 multiLine={true}
                 rowsMax={4}
                 fullWidth={true}
-                
+                value={this.state.name}
+                onChange={this.handleChange}
                 />
-            <FlatButton label="Send" />
+                {console.log(this.state.messageText)}
+            <FlatButton label="Send" name='name' 
+            onClick={this.newStateMessageText} 
+            />
             </div>
             <div><br />
                 <Paper style={style} zDepth={1} >
