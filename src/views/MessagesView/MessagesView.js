@@ -24,16 +24,25 @@ const style = {
 
 class MessagesView extends React.Component {
     state = {
-        messageText: ''
+        dateOfMessage: 1533918739807,
+        favourite: false,
+        messageText: '',
+        userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
+        userId: 767678686778
     }
 
-    newStateMessageText = () => {
-
+    sendMessageText = () => {
+        const request = {
+            method: 'POST',
+            body: JSON.stringify(this.state)
+        }
+        fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
     }
 
     handleChange = (event) => {
         const text = event.target.value
         this.setState({
+            dateOfMessage: Date.now(),
             messageText: text
         })
     }
@@ -52,7 +61,7 @@ class MessagesView extends React.Component {
                 />
                 {console.log(this.state.messageText)}
             <FlatButton label="Send" name='name' 
-            onClick={this.newStateMessageText} 
+            onClick={this.sendMessageText} 
             />
             </div>
             <div><br />
