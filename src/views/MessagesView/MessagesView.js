@@ -22,23 +22,33 @@ const style = {
 };
 
 
-const MessagesView = () => (
-    <div style={containerStyles}>
-        <div style={displayStyles}>
-        <TextField
-            hintText="Type your message ..."
-            multiLine={true}
-            rowsMax={4}
-            fullWidth={true}
-            />
-        <FlatButton label="Send" />
+class MessagesView extends React.Component {
+    state = {
+        messageText: ''
+    }
+
+    render(){
+        return (
+            <div style={containerStyles}>
+            <div style={displayStyles}>
+            <TextField
+                hintText="Type your message ..."
+                multiLine={true}
+                rowsMax={4}
+                fullWidth={true}
+                
+                />
+            <FlatButton label="Send" />
+            </div>
+            <div><br />
+                <Paper style={style} zDepth={1} >
+                <List />
+                </Paper>
+            </div>
         </div>
-        <div><br />
-            <Paper style={style} zDepth={1} >
-            <List />
-            </Paper>
-        </div>
-    </div>
-)
+        )
+    }
+}
+
 
 export default MessagesView
