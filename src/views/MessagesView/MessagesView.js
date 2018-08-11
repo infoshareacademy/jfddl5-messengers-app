@@ -31,7 +31,7 @@ class MessagesView extends React.Component {
             userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
             userId: 767678686778
         },
-        allMessages: null
+        allMessages: 0
     }
 
     getMesseges = () => {
