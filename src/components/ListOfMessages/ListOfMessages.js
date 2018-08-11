@@ -5,9 +5,11 @@ const styles = {
 
 }
 
-const ListOfMessages = () => (
+const ListOfMessages = (props) => (
     <div style={styles}>
-        <Message />
+        <Message 
+        allMessages={props.allMessages}
+        />
   </div>
 )
 

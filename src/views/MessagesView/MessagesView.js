@@ -75,6 +75,10 @@ class MessagesView extends React.Component {
         })
     }
 
+    componentWillMount = () => {
+        this.getMesseges()
+    }
+
     render() {
         return (
             <div style={containerStyles}>
@@ -93,12 +97,11 @@ class MessagesView extends React.Component {
                         onClick={this.sendMessageText}
                     />
                 </div>
-                    <div>
-                        <button onClick={this.getMesseges}>getMesseges</button>
-                    </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
-                        <ListOfMessages />
+                        <ListOfMessages 
+                        allMessages={this.state.allMessages}
+                        />
                     </Paper>
                 </div>
             </div>
