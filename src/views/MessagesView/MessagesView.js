@@ -17,7 +17,7 @@ const style = {
     display: 'flex',
     height: '80vh',
     width: 'calc(100vw-20)',
-    margin: 20,
+    margin: '2vw',
     textAlign: 'center',
 };
 
@@ -136,6 +136,7 @@ class MessagesView extends React.Component {
                 <div><br />
                     <Paper style={style} zDepth={1} >
                         <ListOfMessages
+                            style={{ width: '100%' }}
                             handleFavourite={this.handleFavourite}
                             allMessages={this.state.allMessages}
                         />

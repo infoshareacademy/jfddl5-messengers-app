@@ -22,8 +22,8 @@ const iconButtonElement = (
 
 
 const Message = (props) => (
-  <div>
-    <List>
+  <div >
+    <List >
       <DateOfMessages />
       <ListItem
         leftAvatar={<Avatar src={props.userAvatar} />}
@@ -47,9 +47,10 @@ const Message = (props) => (
         }
         secondaryTextLines={2}
         />
-      <Divider inset={true} />
+      <Divider 
+      style={{ width: '70vw' }}
+      inset={true} />
     </List>
-    {console.log(props)}
   </div>
 )
 
