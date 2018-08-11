@@ -89,7 +89,6 @@ class MessagesView extends React.Component {
             .then(data => this.setState({
                 allMessages: data
             }))
-        console.log('pobrane wiadomosci: ', this.state.allMessages)
     }
 
     sendMessageText = () => {
@@ -122,7 +121,6 @@ class MessagesView extends React.Component {
         return (
             <div style={containerStyles}>
                 <div style={displayStyles}>
-                    {console.log(this.state.allMessages)}
                     <TextField
                         hintText="Type your message ..."
                         multiLine={true}
@@ -131,7 +129,6 @@ class MessagesView extends React.Component {
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
-                    {console.log(this.state.messageText)}
                     <FlatButton label="Send" name='name'
                         onClick={this.sendMessageText}
                     />

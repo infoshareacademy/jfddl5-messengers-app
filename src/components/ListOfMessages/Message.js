@@ -35,7 +35,6 @@ const Message = (props) => (
             <MenuItem
               onClick={()=>{
                 props.handleId(props.id)
-                console.log('propsy', props.id)
               }}
               >Favourite</MenuItem>
           </IconMenu>
