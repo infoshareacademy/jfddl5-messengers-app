@@ -31,7 +31,7 @@ class MessagesView extends React.Component {
             userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
             userId: 767678686778
         },
-        allMessages: null
+        allMessages: 0
     }
 
     getMesseges = () => {
@@ -60,6 +60,7 @@ class MessagesView extends React.Component {
             body: JSON.stringify(this.state.newMessage)
         }
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
+        this.getMesseges()
     }
 
     handleChange = (event) => {
@@ -73,6 +74,10 @@ class MessagesView extends React.Component {
                 userId: 767678686778
             }
         })
+    }
+
+    componentWillMount = () => {
+        this.getMesseges()
     }
 
     render() {
@@ -93,12 +98,11 @@ class MessagesView extends React.Component {
                         onClick={this.sendMessageText}
                     />
                 </div>
-                    <div>
-                        <button onClick={this.getMesseges}>getMesseges</button>
-                    </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
-                        <ListOfMessages />
+                        <ListOfMessages 
+                        allMessages={this.state.allMessages}
+                        />
                     </Paper>
                 </div>
             </div>
