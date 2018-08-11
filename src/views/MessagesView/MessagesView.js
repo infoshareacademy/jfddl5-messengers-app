@@ -10,7 +10,7 @@ const displayStyles = {
 }
 
 const containerStyles = {
-    
+
 }
 
 const style = {
@@ -36,35 +36,39 @@ class MessagesView extends React.Component {
     }
 
     handleFavourite = (naszeId) => {
-        const newArr = this.state.allMessages.filter((el)=>{
+        this.getMesseges()
+
+        const newArr = this.state.allMessages.filter((el) => {
             return el.id === naszeId
         })
-        console.log('newArrPrzed: ', newArr)
-        // newArr[0].favourite = !newArr[0].favourite
-        if(newArr[0].favourite===true){
-            const temp = newArr[0]
-            temp.favourite=!temp.favourite
-            const request = {
-                method: 'PATCH',
-                body: JSON.stringify(temp)
-            }
-            console.log('nasze id: z false', naszeId)
-            fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
-            this.getMesseges()
-        }else{
-            const temp = newArr[0]
-            temp.favourite=!temp.favourite
-            const request = {
-                method: 'PATCH',
-                body: JSON.stringify(temp)
-            }
-            console.log('nasze id: z true', naszeId)
-            fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
-            this.getMesseges()
+        const newArr1 =
+            newArr[0].favourite === true ?
+                newArr.map((el) => ({
+                    id: el.id,
+                    dateOfMessage: el.dateOfMessage,
+                    favourite: false,
+                    messageText: el.messageText,
+                    userAvatar: el.userAvatar,
+                    userId: el.userId
+                })
+                )
+                :
+                newArr.map((el) => ({
+                    id: el.id,
+                    dateOfMessage: el.dateOfMessage,
+                    favourite: true,
+                    messageText: el.messageText,
+                    userAvatar: el.userAvatar,
+                    userId: el.userId
+                })
+                )
+
+        const request = {
+            method: 'PATCH',
+            body: JSON.stringify(newArr1[0])
         }
-        console.log(this.state.allMessages)
-        console.log('naszeIT: ',naszeId)
-        console.log('newArrPo: ', newArr)
+        fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
+            .then(data => this.getMesseges())
     }
 
     getMesseges = () => {
@@ -85,6 +89,7 @@ class MessagesView extends React.Component {
             .then(data => this.setState({
                 allMessages: data
             }))
+        console.log('pobrane wiadomosci: ', this.state.allMessages)
     }
 
     sendMessageText = () => {
@@ -133,9 +138,9 @@ class MessagesView extends React.Component {
                 </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
-                        <ListOfMessages 
-                        handleFavourite={this.handleFavourite}
-                        allMessages={this.state.allMessages}
+                        <ListOfMessages
+                            handleFavourite={this.handleFavourite}
+                            allMessages={this.state.allMessages}
                         />
                     </Paper>
                 </div>
