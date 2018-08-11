@@ -79,7 +79,7 @@ class MessagesView extends React.Component {
         return (
             <div style={containerStyles}>
                 <div style={displayStyles}>
-                {console.log(this.state.allMessages)}
+                    {console.log(this.state.allMessages)}
                     <TextField
                         hintText="Type your message ..."
                         multiLine={true}
@@ -90,9 +90,12 @@ class MessagesView extends React.Component {
                     />
                     {console.log(this.state.messageText)}
                     <FlatButton label="Send" name='name'
-                        onClick={this.getMesseges}
+                        onClick={this.sendMessageText}
                     />
                 </div>
+                    <div>
+                        <button onClick={this.getMesseges}>getMesseges</button>
+                    </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
                         <List />
