@@ -2,7 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
-import List from '../../components/List/List'
+import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 
 const displayStyles = {
     display: 'flex',
@@ -98,7 +98,7 @@ class MessagesView extends React.Component {
                     </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
-                        <List />
+                        <ListOfMessages />
                     </Paper>
                 </div>
             </div>
