@@ -42,9 +42,25 @@ class MessagesView extends React.Component {
         console.log('newArrPrzed: ', newArr)
         // newArr[0].favourite = !newArr[0].favourite
         if(newArr[0].favourite===true){
-            alert('messege if favourite')
+            const temp = newArr[0]
+            temp.favourite=!temp.favourite
+            const request = {
+                method: 'PATCH',
+                body: JSON.stringify(temp)
+            }
+            console.log('nasze id: z false', naszeId)
+            fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
+            this.getMesseges()
         }else{
-            alert('message is not favourite')
+            const temp = newArr[0]
+            temp.favourite=!temp.favourite
+            const request = {
+                method: 'PATCH',
+                body: JSON.stringify(temp)
+            }
+            console.log('nasze id: z true', naszeId)
+            fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
+            this.getMesseges()
         }
         console.log(this.state.allMessages)
         console.log('naszeIT: ',naszeId)
