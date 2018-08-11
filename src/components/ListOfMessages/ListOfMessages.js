@@ -5,7 +5,7 @@ const styles = {
 
 }
 
-const MapMessages = (props) => {
+const MapMessages = (props, handleId) => {
     if (props===0){
         return <p>Ładowanie danych ...</p>
     }else{
@@ -13,7 +13,10 @@ const MapMessages = (props) => {
         return (
             <div>
             <Message 
+            handleId={handleId}
+            handleFavourite={props.handleFavourite}
             text={el.messageText}
+            id={el.id}
             />
             </div>
         )
@@ -23,8 +26,7 @@ const MapMessages = (props) => {
 
 const ListOfMessages = (props) => (
     <div style={styles}>
-        {MapMessages(props.allMessages)}
-        {console.log('111',props.allMessages)}
+        {MapMessages(props.allMessages, props.handleFavourite)}
   </div>
 )
 

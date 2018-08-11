@@ -31,7 +31,24 @@ class MessagesView extends React.Component {
             userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
             userId: 767678686778
         },
-        allMessages: 0
+        allMessages: 0,
+        favouriteMessege: null
+    }
+
+    handleFavourite = (naszeId) => {
+        const newArr = this.state.allMessages.filter((el)=>{
+            return el.id === naszeId
+        })
+        console.log('newArrPrzed: ', newArr)
+        // newArr[0].favourite = !newArr[0].favourite
+        if(newArr[0].favourite===true){
+            alert('messege if favourite')
+        }else{
+            alert('message is not favourite')
+        }
+        console.log(this.state.allMessages)
+        console.log('naszeIT: ',naszeId)
+        console.log('newArrPo: ', newArr)
     }
 
     getMesseges = () => {
@@ -101,6 +118,7 @@ class MessagesView extends React.Component {
                 <div><br />
                     <Paper style={style} zDepth={1} >
                         <ListOfMessages 
+                        handleFavourite={this.handleFavourite}
                         allMessages={this.state.allMessages}
                         />
                     </Paper>
