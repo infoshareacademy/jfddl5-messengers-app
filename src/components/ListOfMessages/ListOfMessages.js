@@ -9,7 +9,7 @@ const MapMessages = (props) => {
     if (props===0){
         return <p>Ładowanie danych ...</p>
     }else{
-    return (props.map((el) => {
+    return (props.slice(0).reverse().map((el) => {
         return (
             <div>
             <Message 
