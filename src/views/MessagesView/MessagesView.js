@@ -28,7 +28,7 @@ class MessagesView extends React.Component {
             dateOfMessage: 1533918739807,
             favourite: false,
             messageText: '',
-            userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
+            userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
             userId: 767678686778
         },
         allMessages: 0,
@@ -107,7 +107,7 @@ class MessagesView extends React.Component {
                 dateOfMessage: Date.now(),
                 favourite: false,
                 messageText: text,
-                userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
+                userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
                 userId: 767678686778
             }
         })

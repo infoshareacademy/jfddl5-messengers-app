@@ -13,6 +13,7 @@ const MapMessages = (props, handleId) => {
         return (
             <div>
             <Message 
+            userAvatar={el.userAvatar}
             handleId={handleId}
             handleFavourite={props.handleFavourite}
             text={el.messageText}

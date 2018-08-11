@@ -26,7 +26,7 @@ const Message = (props) => (
     <List>
       <DateOfMessages />
       <ListItem
-        leftAvatar={<Avatar src="images/ok-128.jpg" />}
+        leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
           <IconMenu iconButtonElement={iconButtonElement}>
             <MenuItem>Reply</MenuItem>
@@ -46,9 +46,10 @@ const Message = (props) => (
           </p>
         }
         secondaryTextLines={2}
-      />
+        />
       <Divider inset={true} />
     </List>
+    {console.log(props)}
   </div>
 )
 
