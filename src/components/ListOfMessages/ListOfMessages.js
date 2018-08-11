@@ -13,7 +13,7 @@ const MapMessages = (props) => {
         return (
             <div>
             <Message 
-            
+            text={el.messageText}
             />
             </div>
         )

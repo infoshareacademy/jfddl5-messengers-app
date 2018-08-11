@@ -38,7 +38,7 @@ const Message = (props) => (
         primaryText="Brendan Lim"
         secondaryText={
           <p>
-            aaa
+            {props.text}
           </p>
         }
         secondaryTextLines={2}

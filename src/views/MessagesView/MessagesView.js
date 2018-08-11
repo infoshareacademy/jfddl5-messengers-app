@@ -60,6 +60,7 @@ class MessagesView extends React.Component {
             body: JSON.stringify(this.state.newMessage)
         }
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
+        this.getMesseges()
     }
 
     handleChange = (event) => {
