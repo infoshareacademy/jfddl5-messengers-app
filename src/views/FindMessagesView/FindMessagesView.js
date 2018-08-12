@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Paper from 'material-ui/Paper';
 import Search from "./Search"
 import FindMessagesList from './FindMessagesList'
-import ListOfMessages from '../../components/ListOfMessages'
+import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 
 class FindMessagesView extends Component {
     state = {
@@ -36,7 +36,7 @@ class FindMessagesView extends Component {
             }
         
         ))
-        console.log("wiadomosci",allMessages)
+        //console.log("wiadomosci",allMessages)
     }
 
 
@@ -55,10 +55,10 @@ class FindMessagesView extends Component {
         return (
             <div>
                 <Search
-                    searchPhrase={this.state.messeges.searchPhrase}
+                    searchPhrase={this.state.searchPhrase}
                     onSearchPhraseChanged={this.onSearchPhraseChanged}
                 />
-                <Paper style={style} zDepth={1} >
+                <Paper zDepth={1} >
                     <ListOfMessages
                         allMessages={filteredMessages}
                     />
