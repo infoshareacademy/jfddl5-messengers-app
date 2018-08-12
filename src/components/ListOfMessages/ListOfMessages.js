@@ -9,6 +9,7 @@ const MapMessages = (props, handleId) => {
         return (props.slice(0).reverse().map((el) => {
             return (
                 <div style={styles}>
+                    {console.log('lista propsow jakie mozna przekazac', el)}
                     <Message
                         userAvatar={el.userAvatar}
                         handleId={handleId}
@@ -16,6 +17,7 @@ const MapMessages = (props, handleId) => {
                         text={el.messageText}
                         id={el.id}
                         favourite={el.favourite}
+                        dateOfMessage={el.dateOfMessage}
                     />
                 </div>
             )
