@@ -25,7 +25,10 @@ const Message = (props) => (
   <div >
     {console.log(props)}
     <List >
-      <DateOfMessages />
+      {console.log('przekazane propsy: ', props)}
+      <DateOfMessages 
+      dateOfMessage={props.dateOfMessage}
+      />
       <ListItem
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
