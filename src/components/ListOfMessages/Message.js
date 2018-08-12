@@ -37,7 +37,7 @@ const Message = (props) => (
               onClick={()=>{
                 props.handleId(props.id)
               }}
-              >{props.favourite === true ? 'Like' : 'Unlike'}</MenuItem>
+              >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
           </IconMenu>
         }
         primaryText="Brendan Lim"
