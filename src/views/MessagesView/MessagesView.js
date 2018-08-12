@@ -17,7 +17,7 @@ const style = {
     display: 'flex',
     height: '80vh',
     width: 'calc(100vw-20)',
-    margin: 20,
+    margin: '2vw',
     textAlign: 'center',
 };
 
@@ -28,10 +28,47 @@ class MessagesView extends React.Component {
             dateOfMessage: 1533918739807,
             favourite: false,
             messageText: '',
-            userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
+            userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
             userId: 767678686778
         },
-        allMessages: 0
+        allMessages: 0,
+        favouriteMessege: null
+    }
+
+    handleFavourite = (naszeId) => {
+        this.getMesseges()
+
+        const newArr = this.state.allMessages.filter((el) => {
+            return el.id === naszeId
+        })
+        const newArr1 =
+            newArr[0].favourite === true ?
+                newArr.map((el) => ({
+                    id: el.id,
+                    dateOfMessage: el.dateOfMessage,
+                    favourite: false,
+                    messageText: el.messageText,
+                    userAvatar: el.userAvatar,
+                    userId: el.userId
+                })
+                )
+                :
+                newArr.map((el) => ({
+                    id: el.id,
+                    dateOfMessage: el.dateOfMessage,
+                    favourite: true,
+                    messageText: el.messageText,
+                    userAvatar: el.userAvatar,
+                    userId: el.userId
+                })
+                )
+
+        const request = {
+            method: 'PATCH',
+            body: JSON.stringify(newArr1[0])
+        }
+        fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
+            .then(data => this.getMesseges())
     }
 
     getMesseges = () => {
@@ -70,7 +107,7 @@ class MessagesView extends React.Component {
                 dateOfMessage: Date.now(),
                 favourite: false,
                 messageText: text,
-                userAvatar: "https://4vector.com/i/free-vector-ee-train-clip-art_116884_Ee_Train_clip_art_small.png",
+                userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
                 userId: 767678686778
             }
         })
@@ -84,7 +121,6 @@ class MessagesView extends React.Component {
         return (
             <div style={containerStyles}>
                 <div style={displayStyles}>
-                    {console.log(this.state.allMessages)}
                     <TextField
                         hintText="Type your message ..."
                         multiLine={true}
@@ -93,15 +129,16 @@ class MessagesView extends React.Component {
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
-                    {console.log(this.state.messageText)}
                     <FlatButton label="Send" name='name'
                         onClick={this.sendMessageText}
                     />
                 </div>
                 <div><br />
                     <Paper style={style} zDepth={1} >
-                        <ListOfMessages 
-                        allMessages={this.state.allMessages}
+                        <ListOfMessages
+                            style={{ width: '100%' }}
+                            handleFavourite={this.handleFavourite}
+                            allMessages={this.state.allMessages}
                         />
                     </Paper>
                 </div>
