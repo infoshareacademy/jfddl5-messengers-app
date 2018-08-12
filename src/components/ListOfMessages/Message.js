@@ -23,6 +23,7 @@ const iconButtonElement = (
 
 const Message = (props) => (
   <div >
+    {console.log(props)}
     <List >
       <DateOfMessages />
       <ListItem
@@ -36,7 +37,7 @@ const Message = (props) => (
               onClick={()=>{
                 props.handleId(props.id)
               }}
-              >Favourite</MenuItem>
+              >{props.favourite === true ? 'Like' : 'Unlike'}</MenuItem>
           </IconMenu>
         }
         primaryText="Brendan Lim"

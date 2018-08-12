@@ -15,6 +15,7 @@ const MapMessages = (props, handleId) => {
                         handleFavourite={props.handleFavourite}
                         text={el.messageText}
                         id={el.id}
+                        favourite={el.favourite}
                     />
                 </div>
             )
