@@ -19,22 +19,27 @@ const iconButtonElement = (
   </IconButton>
 );
 
-const rightIconMenu = (
-  <IconMenu iconButtonElement={iconButtonElement}>
-    <MenuItem>Reply</MenuItem>
-    <MenuItem>Forward</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Favourite</MenuItem>
-  </IconMenu>
-);
+
 
 const Message = (props) => (
-  <div>
-    <List>
+  <div >
+    {console.log(props)}
+    <List >
       <DateOfMessages />
       <ListItem
-        leftAvatar={<Avatar src="images/ok-128.jpg" />}
-        rightIconButton={rightIconMenu}
+        leftAvatar={<Avatar src={props.userAvatar} />}
+        rightIconButton={
+          <IconMenu iconButtonElement={iconButtonElement}>
+            <MenuItem>Reply</MenuItem>
+            <MenuItem>Forward</MenuItem>
+            <MenuItem>Delete</MenuItem>
+            <MenuItem
+              onClick={()=>{
+                props.handleId(props.id)
+              }}
+              >{props.favourite === true ? 'Like' : 'Unlike'}</MenuItem>
+          </IconMenu>
+        }
         primaryText="Brendan Lim"
         secondaryText={
           <p>
@@ -42,8 +47,10 @@ const Message = (props) => (
           </p>
         }
         secondaryTextLines={2}
-      />
-      <Divider inset={true} />
+        />
+      <Divider 
+      style={{ width: '70vw' }}
+      inset={true} />
     </List>
   </div>
 )
