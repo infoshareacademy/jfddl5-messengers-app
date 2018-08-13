@@ -18,7 +18,7 @@ class FindMessagesView extends Component {
     }
 
 
-    componentDidMount () {
+    componentDidMount() {
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json')
             .then(response => response.json())
             .then(responseData => {
@@ -32,11 +32,11 @@ class FindMessagesView extends Component {
             })
             .then(data => this.setState({
                 allMessages: data
-                
+
             }
-        
-        ))
-        
+
+            ))
+
     }
 
 
@@ -48,8 +48,8 @@ class FindMessagesView extends Component {
 
     render() {
         const filteredMessages = this.state.allMessages && this.state.allMessages.filter(
-                            messages => messages.messageText.indexOf(this.state.searchPhrase) !== -1
-                        )
+            messages => messages.messageText.indexOf(this.state.searchPhrase) !== -1
+        )
 
 
         return (
@@ -58,11 +58,9 @@ class FindMessagesView extends Component {
                     searchPhrase={this.state.searchPhrase}
                     onSearchPhraseChanged={this.onSearchPhraseChanged}
                 />
-                <Paper zDepth={1} >
-                    <ListOfMessages
-                        allMessages={filteredMessages}
-                    />
-                </Paper>
+                <ListOfMessages
+                    allMessages={filteredMessages}
+                />
             </div>
         )
     }
