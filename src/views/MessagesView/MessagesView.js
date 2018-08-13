@@ -14,10 +14,6 @@ const containerStyles = {
 }
 
 const style = {
-    display: 'flex',
-    height: '80vh',
-    width: 'calc(100vw-20)',
-    margin: '2vw',
     textAlign: 'center',
 };
 
@@ -122,7 +118,6 @@ class MessagesView extends React.Component {
             <div style={containerStyles}>
                 <div style={displayStyles}>
                     <TextField
-                        hintText="Type your message ..."
                         multiLine={true}
                         rowsMax={4}
                         fullWidth={true}
@@ -133,14 +128,13 @@ class MessagesView extends React.Component {
                         onClick={this.sendMessageText}
                     />
                 </div>
-                <div><br />
-                    <Paper style={style} zDepth={1} >
-                        <ListOfMessages
-                            style={{ width: '100%' }}
-                            handleFavourite={this.handleFavourite}
-                            allMessages={this.state.allMessages}
-                        />
-                    </Paper>
+                <div >
+                    <ListOfMessages
+                        style={style}
+                        handleFavourite={this.handleFavourite}
+                        allMessages={this.state.allMessages}
+                    />
+
                 </div>
             </div>
         )
