@@ -25,8 +25,12 @@ const Message = (props) => (
   <div >
     {console.log(props)}
     <List >
-      <DateOfMessages />
+      {console.log('przekazane propsy: ', props)}
+      <DateOfMessages
+        dateOfMessage={props.dateOfMessage}
+      />
       <ListItem
+
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
           <IconMenu iconButtonElement={iconButtonElement}>
@@ -34,10 +38,10 @@ const Message = (props) => (
             <MenuItem>Forward</MenuItem>
             <MenuItem>Delete</MenuItem>
             <MenuItem
-              onClick={()=>{
+              onClick={() => {
                 props.handleId(props.id)
               }}
-              >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
+            >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
           </IconMenu>
         }
         primaryText="Brendan Lim"
@@ -48,11 +52,11 @@ const Message = (props) => (
         }
         secondaryTextLines={2}
         />
-      <Divider 
-      style={{ width: '70vw' }}
-      inset={true} />
+      <Divider
+          style={{ width: '80%' }}
+          inset={true} />
     </List>
   </div>
-)
-
+    )
+    
 export default Message
