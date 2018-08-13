@@ -25,7 +25,7 @@ const MapMessages = (props, handleId) => {
     }
 }
 
-const styles={
+const styles = {
     alignContent: 'center'
 }
 
