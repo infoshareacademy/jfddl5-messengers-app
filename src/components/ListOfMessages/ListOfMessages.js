@@ -3,6 +3,7 @@ import Message from './Message'
 
 
 const MapMessages = (props, handleId) => {
+    console.log('props', props);
     if (props === 0) {
         return <p>Ładowanie danych ...</p>
     } else {

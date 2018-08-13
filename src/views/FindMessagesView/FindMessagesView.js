@@ -36,7 +36,7 @@ class FindMessagesView extends Component {
             }
         
         ))
-        //console.log("wiadomosci",allMessages)
+        
     }
 
 
@@ -47,7 +47,7 @@ class FindMessagesView extends Component {
     }
 
     render() {
-        const filteredMessages = this.state.allMesseges && this.state.allMessages.filter(
+        const filteredMessages = this.state.allMessages && this.state.allMessages.filter(
                             messages => messages.messageText.indexOf(this.state.searchPhrase) !== -1
                         )
 
