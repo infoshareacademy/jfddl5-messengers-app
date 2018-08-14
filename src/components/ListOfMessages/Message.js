@@ -8,6 +8,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import DateOfMessages from './DateOfMessages'
+import FontIcon from 'material-ui/FontIcon';
 
 const iconButtonElement = (
   <IconButton
@@ -33,16 +34,14 @@ const Message = (props) => (
 
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
-          <IconMenu iconButtonElement={iconButtonElement}>
-            <MenuItem>Reply</MenuItem>
-            <MenuItem>Forward</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem
-              onClick={() => {
-                props.handleId(props.id)
-              }}
-            >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
-          </IconMenu>
+          <FontIcon
+            label="Favorites"
+            icon={favoritesIcon}
+            onClick={() => {
+              props.handleId(props.id)
+            }}
+          >{props.favourite === true ? 'Unlike' : 'Like'}
+          </FontIcon> >
         }
         primaryText="Brendan Lim"
         secondaryText={
@@ -51,12 +50,12 @@ const Message = (props) => (
           </p>
         }
         secondaryTextLines={2}
-        />
+      />
       <Divider
-          style={{ width: '80%' }}
-          inset={true} />
+        style={{ width: '80%' }}
+        inset={true} />
     </List>
   </div>
-    )
-    
+)
+
 export default Message
