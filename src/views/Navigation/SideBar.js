@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import { MenuItem } from 'material-ui'
+import Divider from 'material-ui/Divider'
+import Channels from '../Channels'
 
 const SideBar = (props) => (
     <Drawer
@@ -16,7 +18,7 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Kontakty
-                </MenuItem>
+            </MenuItem>
         </Link>
         <Link
             onClick={props.toggleHandler}
@@ -25,7 +27,7 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Wiadomości
-                </MenuItem>
+            </MenuItem>
         </Link>
         <Link
             onClick={props.toggleHandler}
@@ -34,7 +36,7 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Ostatnie Wiadomości
-                </MenuItem>
+            </MenuItem>
         </Link>
         <Link
             onClick={props.toggleHandler}
@@ -43,7 +45,7 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Wyszukaj
-                </MenuItem>
+            </MenuItem>
         </Link>
         <Link
             onClick={props.toggleHandler}
@@ -52,8 +54,10 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Ulubione
-                </MenuItem>
+            </MenuItem>
         </Link>
+        <Divider />
+        <Channels />
     </Drawer>
 )
 
