@@ -41,7 +41,7 @@ const Message = (props) => (
               props.handleId(props.id)
             }}
           >{props.favourite === true ? 'Unlike' : 'Like'}
-          </FontIcon> >
+          </FontIcon>
         }
         primaryText="Brendan Lim"
         secondaryText={
