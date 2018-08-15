@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import { MenuItem } from 'material-ui'
 
+import { connect } from 'react-redux'
+import { toggleSidebarAction } from '../state/navigation'
+
 class SideBar extends React.Component {
     render() {
         return (
-
             <Drawer
                 open={this.props.isSideBarOpen}
-                onRequestChange={this.props.toggleHandler} 
+                onRequestChange={this.props.toggleHandler}
                 docked={false}
             >
                 <Link
@@ -62,4 +64,15 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar
+const mapStateToProps = state => ({
+    _isOpen: state.navigation.isOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    _toggleSidebarAction: () => dispatch(toggleSidebarAction())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SideBar)

@@ -8,6 +8,7 @@ class Navigation extends React.Component {
     state = {
         isOpen: false
     }
+    
     toggleHandler = () => {
         this.setState({
             isOpen: !this.state.isOpen
