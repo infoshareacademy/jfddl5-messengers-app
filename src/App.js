@@ -5,8 +5,7 @@ import LastMessagesView from './views/LastMessagesView'
 import FindMessagesView from './views/FindMessagesView'
 import FavouritesMessagesView from './views/FavouritesMessagesView'
 import ContactsView from './views/ContactsView'
-import Navigation from './Navigation'
-
+import Navigation from './views/Navigation'
 
 class App extends React.Component {
   render() {

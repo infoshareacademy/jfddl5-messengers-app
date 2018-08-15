@@ -6,14 +6,15 @@ const displayStyles = {
     margin: 20
 }
 
- const Search = (props)=> (
+const Search = (props) => (
     <div style={displayStyles}>
         <TextField
-        hintText="wpisz szukaną wiadomość"
-        fullWidth={true}
-        value={props.searchPhrase}
-        onChange={props.onSearchPhraseChanged}
-         />
+            hintText="wpisz szukaną wiadomość"
+            fullWidth={true}
+            value={props.searchPhrase}
+            onChange={props.onSearchPhraseChanged}
+        />
     </div>
- )
- export default Search
+)
+
+export default Search

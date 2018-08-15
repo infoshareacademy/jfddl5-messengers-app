@@ -1,7 +1,7 @@
 import React from 'react'
-import TextField from 'material-ui/TextField';
+import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 
 const displayStyles = {
@@ -9,13 +9,9 @@ const displayStyles = {
     margin: 20
 }
 
-const containerStyles = {
-
-}
-
 const style = {
     textAlign: 'center',
-};
+}
 
 
 class MessagesView extends React.Component {
@@ -33,7 +29,6 @@ class MessagesView extends React.Component {
 
     handleFavourite = (naszeId) => {
         this.getMesseges()
-
         const newArr = this.state.allMessages.filter((el) => {
             return el.id === naszeId
         })
@@ -115,7 +110,7 @@ class MessagesView extends React.Component {
 
     render() {
         return (
-            <div style={containerStyles}>
+            <div>
                 <div style={displayStyles}>
                     <TextField
                         multiLine={true}
@@ -134,12 +129,10 @@ class MessagesView extends React.Component {
                         handleFavourite={this.handleFavourite}
                         allMessages={this.state.allMessages}
                     />
-
                 </div>
             </div>
         )
     }
 }
-
 
 export default MessagesView
