@@ -1,13 +1,16 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import toggleSidebar,{ toggleSidebarAction } from './state/navigation'
+import navigation, { toggleSidebarAction } from './state/navigation'
 
 const reducer = combineReducers({
-    toggleSidebar
+    navigation
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-export const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
-
-store.dispatch(toggleSidebarAction())
+export const store = createStore(
+    reducer,
+    composeEnhancers(
+        applyMiddleware(thunk)
+    )
+)

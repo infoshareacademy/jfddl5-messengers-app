@@ -3,33 +3,33 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import SideBar from './SideBar'
 
+import { connect } from 'react-redux'
+import { toggleSidebarAction } from '../state/navigation'
 
-class Navigation extends React.Component {
-    state = {
-        isOpen: false
-    }
-    
-    toggleHandler = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-    render() {
-        return (
-            <div>
-                <AppBar
-                    title={'Messengers'}
-                    onLeftIconButtonClick={this.toggleHandler}
+const Navigation = (props) => (
+    <div>
+        <AppBar
+            title={'Messengers'}
+            onLeftIconButtonClick={props._toggleSidebarAction}
 
-                />
-                <SideBar
-                    toggleHandler={this.toggleHandler}
-                    isSideBarOpen={this.state.isOpen}
-                />
+        />
+        <SideBar
+            toggleHandler={props._toggleSidebarAction}
+            isSideBarOpen={props._isOpen}
+        />
 
-            </div>
-        )
-    }
-}
+    </div>
+)
 
-export default Navigation
+const mapStateToProps = state => ({
+    _isOpen: state.navigation.isOpen
+})
+
+const mapDispatchToProps = dispatch => ({
+    _toggleSidebarAction: () => dispatch(toggleSidebarAction())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Navigation)

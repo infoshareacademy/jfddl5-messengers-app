@@ -5,9 +5,6 @@ export const toggleSidebarAction = () => ({
     type: TOGGLE_SIDEBAR
 })
 
-
-
-
 const initialState = {
     isOpen: false
 }
@@ -17,7 +14,7 @@ export default (state = initialState, action) => {
         case TOGGLE_SIDEBAR:
             return {
                 ...state,
-                isOpen: !action.isOpen
+                isOpen: !state.isOpen
             }
         default:
             return state
