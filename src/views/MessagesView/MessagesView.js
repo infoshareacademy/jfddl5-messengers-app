@@ -14,6 +14,7 @@ const style = {
 }
 
 
+
 class MessagesView extends React.Component {
     state = {
         newMessage: {
