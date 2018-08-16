@@ -4,7 +4,6 @@ import moment from 'moment'
 
 const DateOfMessages = (props) => (
     <Subheader>
-        {console.log('propsy w dacie',props)}
         {moment(new Date(props.dateOfMessage).toUTCString()).calendar()}
     </Subheader>
 )

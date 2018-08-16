@@ -17,15 +17,11 @@ const iconButtonElement = (
   >
     <MoreVertIcon color={grey400} />
   </IconButton>
-);
-
-
+)
 
 const Message = (props) => (
   <div >
-    {console.log(props)}
     <List >
-      {console.log('przekazane propsy: ', props)}
       <DateOfMessages
         dateOfMessage={props.dateOfMessage}
       />
@@ -51,12 +47,12 @@ const Message = (props) => (
           </p>
         }
         secondaryTextLines={2}
-        />
+      />
       <Divider
-          style={{ width: '80%' }}
-          inset={true} />
+        style={{ width: '80%' }}
+        inset={true} />
     </List>
   </div>
-    )
-    
+)
+
 export default Message

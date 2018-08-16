@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import Paper from 'material-ui/Paper';
 import Search from "./Search"
-import FindMessagesList from './FindMessagesList'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 
 class FindMessagesView extends Component {
@@ -17,7 +15,6 @@ class FindMessagesView extends Component {
         searchPhrase: ''
     }
 
-
     componentDidMount() {
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json')
             .then(response => response.json())
@@ -32,13 +29,9 @@ class FindMessagesView extends Component {
             })
             .then(data => this.setState({
                 allMessages: data
-
             }
-
             ))
-
     }
-
 
     onSearchPhraseChanged = event => {
         this.setState({
@@ -50,7 +43,6 @@ class FindMessagesView extends Component {
         const filteredMessages = this.state.allMessages && this.state.allMessages.filter(
             messages => messages.messageText.indexOf(this.state.searchPhrase) !== -1
         )
-
 
         return (
             <div>
@@ -65,6 +57,5 @@ class FindMessagesView extends Component {
         )
     }
 }
-
 
 export default FindMessagesView

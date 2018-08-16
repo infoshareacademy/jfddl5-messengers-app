@@ -21,12 +21,12 @@ const ContactsView = () => (
     <div>
         <Paper style={style} zDepth={1} />
         <div style={styles}>
-        <TextField
-            hintText="Type your message ..."
-            multiLine={true}
-            rowsMax={4}
-            fullWidth={true}
-        />
+            <TextField
+                hintText="Type your message ..."
+                multiLine={true}
+                rowsMax={4}
+                fullWidth={true}
+            />
         </div>
     </div>
 
