@@ -2,7 +2,6 @@ import { database } from '../firebaseConfig'
 
 const SET_CHANNELS = 'chanels/SET_CHANNELS'
 
-
 export const initChannelsSync = () => (dispatch, getState) => {
     database.ref('/chanels/').on(
         'value',

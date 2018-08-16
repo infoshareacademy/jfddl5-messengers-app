@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { mapObjectToArray } from '../../utils'
 
 const Channels = (props) => (
-
     <div>
         <MenuItem>
             <h4>CHANNELS</h4>

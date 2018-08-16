@@ -9,7 +9,6 @@ import Navigation from './views/Navigation'
 import ChannelsView from './views/ChannelsView';
 
 class App extends React.Component {
-  
   render() {
     return (
       <div>
@@ -21,7 +20,6 @@ class App extends React.Component {
             <Route path={'/last-messages'} component={LastMessagesView} />
             <Route path={'/find-messages'} component={FindMessagesView} />
             <Route path={'/favourite-messages'} component={FavouritesMessagesView} />
-
             <Route path={'/channels/:id'} component={ChannelsView} />
           </div>
         </Router>
