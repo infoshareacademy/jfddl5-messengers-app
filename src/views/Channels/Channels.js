@@ -1,12 +1,29 @@
 import React from 'react'
+import { MenuItem } from 'material-ui'
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
-import { MapObjectToArray } from '../../utils'
+import { mapObjectToArray } from '../../utils'
 
-const Channels = props => (
+const Channels = (props) => (
     <div>
-        {/* {MapObjectToArray(data)} */}
-        Chanels
+        <MenuItem>
+            <h4>CHANNELS</h4>
+        </MenuItem>
+        {
+            mapObjectToArray(props._chanels).map(channel => (
+                <Link
+                    key={channel.key}
+                    //  onClick={props.toggleHandler}
+                    to={'/channels/' + channel.key}
+                    style={{ textDecoration: 'none' }}
+                >
+                    <MenuItem>
+                        {channel.name}
+                    </MenuItem>
+                </Link>
+            ))
+        }
     </div>
 )
 
@@ -15,7 +32,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    // _setChannelsAction: dispatch(setChannelsAction(data))
+    // _setChannelsAction: () => dispatch(setChannelsAction(data))
 })
 
 export default connect(
