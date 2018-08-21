@@ -20,6 +20,8 @@ const iconButtonElement = (
   </IconButton>
 )
 
+const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+
 const Message = (props) => (
   <div >
     <List >
