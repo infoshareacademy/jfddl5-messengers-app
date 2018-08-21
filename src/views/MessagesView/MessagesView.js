@@ -125,8 +125,8 @@ class MessagesView extends React.Component {
                     <ListOfMessages
                         style={style}
                         handleFavourite={this.handleFavourite}
-                        allMessages={this.state.allMessages}
-                    />
+                        allMessages={this.props.allMessages}
+                        />
                 </div>
             </div>
         )
@@ -134,7 +134,7 @@ class MessagesView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    
+    allMessages: state.messageView.allMessages
 })
 
 const mapDispatchToProps = dispatch => ({
