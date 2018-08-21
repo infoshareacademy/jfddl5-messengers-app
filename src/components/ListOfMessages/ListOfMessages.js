@@ -1,7 +1,7 @@
 import React from 'react'
 import Message from './Message'
 
-const MapMessages = (props, handleId) => {
+const MapMessages = ({ props, handleId }) => {
     if (props === 0) {
         return <p>Ładowanie danych ...</p>
     } else {
@@ -29,7 +29,10 @@ const styles = {
 
 const ListOfMessages = (props) => (
     <div >
-        {MapMessages(props.allMessages, props.handleFavourite)}
+        <MapMessages
+            props={props.allMessages}
+            handleId={props.handleFavourite}
+        />
     </div>
 )
 

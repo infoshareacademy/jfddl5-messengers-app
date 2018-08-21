@@ -1,14 +1,17 @@
 import React from 'react'
-import { List, ListItem } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Avatar from 'material-ui/Avatar';
-import { grey400, darkBlack, lightBlack } from 'material-ui/styles/colors';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
+import { List, ListItem } from 'material-ui/List'
+import Divider from 'material-ui/Divider'
+import Avatar from 'material-ui/Avatar'
+import { grey400, darkBlack, lightBlack } from 'material-ui/styles/colors'
+import IconButton from 'material-ui/IconButton'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import IconMenu from 'material-ui/IconMenu'
+import MenuItem from 'material-ui/MenuItem'
 import DateOfMessages from './DateOfMessages'
-import FontIcon from 'material-ui/FontIcon';
+import FontIcon from 'material-ui/FontIcon'
+import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
+import Favorite from 'material-ui/svg-icons/action/favorite'
+import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border'
 
 const iconButtonElement = (
   <IconButton
@@ -20,7 +23,8 @@ const iconButtonElement = (
   </IconButton>
 )
 
-const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
+const favoritesIcon = <FontIcon
+  className="material-icons">favorite</FontIcon>;
 
 const Message = (props) => (
   <div >
@@ -29,17 +33,20 @@ const Message = (props) => (
         dateOfMessage={props.dateOfMessage}
       />
       <ListItem
-
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
-          <FontIcon
-            label="Favorites"
-            icon={favoritesIcon}
-            onClick={() => {
-              props.handleId(props.id)
-            }}
-          >{props.favourite === true ? 'Unlike' : 'Like'}
-          </FontIcon>
+          props.favourite === true ?
+            <Favorite
+              onClick={() => {
+                props.handleId(props.id)
+              }}
+            />
+            :
+            <FavoriteBorder
+              onClick={() => {
+                props.handleId(props.id)
+              }}
+            />
         }
         primaryText="Brendan Lim"
         secondaryText={
