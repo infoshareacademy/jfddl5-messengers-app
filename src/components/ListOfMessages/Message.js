@@ -18,15 +18,11 @@ const iconButtonElement = (
   >
     <MoreVertIcon color={grey400} />
   </IconButton>
-);
-
-
+)
 
 const Message = (props) => (
   <div >
-    {console.log(props)}
     <List >
-      {console.log('przekazane propsy: ', props)}
       <DateOfMessages
         dateOfMessage={props.dateOfMessage}
       />

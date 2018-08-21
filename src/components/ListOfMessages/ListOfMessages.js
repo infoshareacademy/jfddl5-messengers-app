@@ -1,16 +1,13 @@
 import React from 'react'
 import Message from './Message'
 
-
 const MapMessages = (props, handleId) => {
-    console.log('props', props);
     if (props === 0) {
         return <p>Ładowanie danych ...</p>
     } else {
         return (props.slice(0).reverse().map((el) => {
             return (
-                <div style={styles}>
-                    {console.log('lista propsow jakie mozna przekazac', el)}
+                <div style={styles} key={el.id}>
                     <Message
                         userAvatar={el.userAvatar}
                         handleId={handleId}

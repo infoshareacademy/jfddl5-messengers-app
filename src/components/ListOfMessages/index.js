@@ -1,1 +1,1 @@
-export {default} from 'ListOfMessages'
+export { default } from 'ListOfMessages'
