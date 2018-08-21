@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 import {connect} from 'react-redux'
+import {saveMessagesAction, handleFavourite, getMesseges} from '../../state/messageView'
 
 const displayStyles = {
     display: 'flex',
@@ -40,8 +41,7 @@ class MessagesView extends React.Component {
                     messageText: el.messageText,
                     userAvatar: el.userAvatar,
                     userId: el.userId
-                })
-                )
+                }))
                 :
                 newArr.map((el) => ({
                     id: el.id,
@@ -50,8 +50,7 @@ class MessagesView extends React.Component {
                     messageText: el.messageText,
                     userAvatar: el.userAvatar,
                     userId: el.userId
-                })
-                )
+                }))
 
         const request = {
             method: 'PATCH',
@@ -103,8 +102,8 @@ class MessagesView extends React.Component {
         })
     }
 
-    componentWillMount = () => {
-        this.getMesseges()
+    componentWillMount(){
+        this.props.getMesseges()
     }
 
     render() {
@@ -134,13 +133,15 @@ class MessagesView extends React.Component {
     }
 }
 
-const mapStateToProps = ({
+const mapStateToProps = state => ({
     
 })
 
-const mapDispatchToProps = ({
-
+const mapDispatchToProps = dispatch => ({
+    saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
+    handleFavourite: () => dispatch(handleFavourite()),
+    getMesseges: () => dispatch(getMesseges())
 })
 
 
-export default connect()(MessagesView)
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesView)
