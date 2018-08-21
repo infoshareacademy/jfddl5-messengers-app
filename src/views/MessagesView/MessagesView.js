@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
+import {connect} from 'react-redux'
 
 const displayStyles = {
     display: 'flex',
@@ -133,4 +134,13 @@ class MessagesView extends React.Component {
     }
 }
 
-export default MessagesView
+const mapStateToProps = ({
+    
+})
+
+const mapDispatchToProps = ({
+
+})
+
+
+export default connect()(MessagesView)
