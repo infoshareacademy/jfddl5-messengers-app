@@ -1,6 +1,5 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 
@@ -12,7 +11,6 @@ const displayStyles = {
 const style = {
     textAlign: 'center',
 }
-
 
 class MessagesView extends React.Component {
     state = {
