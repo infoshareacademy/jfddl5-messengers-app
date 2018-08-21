@@ -10,3 +10,11 @@ const initialState = {
     allMessages: 0,
     favouriteMessege: null
 }
+
+export default (state = initialState, action) => {
+    switch (action.type) {
+        default:
+            return state
+    }
+
+}
