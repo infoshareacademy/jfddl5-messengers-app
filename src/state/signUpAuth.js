@@ -29,7 +29,7 @@ export const onSignUpClickAction = () => (dispatch, getState) => {
         signUpAuth.passwordSignUp
       )
       .catch(function(error) {
-        var errorCode = error.code;
+      
         var errorMessage = error.message;
         alert(errorMessage);
       });

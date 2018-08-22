@@ -1,30 +1,47 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
+import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton"
 
+const styles = {  
+    margin: "20px,40px,20px, 40px",
+    padding: "20px",
+    maxWidth: '40vw'
+  }
+  
 const LoginByEmailAndPassword = (props) => (
 
-    <div>
-    <Paper>
-        <div>
-            <input type="email" 
+ 
+     <Paper style={styles}>
+       <div>
+        <TextField
+            type="email" 
+            hintText="write your email here"
             value={props.emailValue}
             onChange={props.onEmailChange}
+            errorText={props.errorTextEmail}
             />
-        </div>
-        <div>
-            <input type="password" 
+       
+       </div>
+       <div>
+        <TextField
+            type="password" 
+            hintText="write your password here"
             value={props.passwordValue}
             onChange={props.onPasswordChange}
             />
+        
         </div>
         <div>
-            <button
+            <RaisedButton 
+            label="LOGIN"
+            primary={true}
             onClick={props.onLoginClick}>
-                LOGIN!
-            </button>
-        </div>
+          
+            </RaisedButton>
+            </div>
         </Paper>
-    </div>
+  
 )
 
 

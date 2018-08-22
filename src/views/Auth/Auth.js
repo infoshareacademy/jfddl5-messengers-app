@@ -15,6 +15,12 @@ import { onLogInByGoogleClickHandler } from '../../state/logInGoogleAuth'
 import RegisterUserForm from './RegisterUserForm'
 import { onEmailSignUpChangeAction,onPasswordSignUpChangeAction,onSignUpClickAction } from '../../state/signUpAuth'
 
+const styles = {  
+    margin: "20px,40px,20px, 40px",
+    padding: "20px",
+    maxWidth: '40vw'
+  }
+
 const Auth = (props) => (
     props._user ?
         <div>
@@ -33,10 +39,12 @@ const Auth = (props) => (
                 passwordValue={props._passwordValue}
                 onPasswordChange={props._onPasswordChange}
                 onLoginClick={props._onLoginClick}
+                errorTextPassword={props._errorTextPasswordLogin}
+                errorTextEmail={props._errorTextEmailLogin}
 
             />
         
-            <Paper>
+            <Paper style={styles} style={width_style}>
             <RaisedButton
                         label="Login by google"
                         primary={true}
@@ -65,7 +73,11 @@ const mapStateToProps = state => ({
     _emailSignUp: state.signUpAuth.emailSignUp,
     _passwordSignUp: state.signUpAuth.passwordSignUp,
     _errorTextEmailSignUp: state.signUpAuth.errorTextEmailSignUp,
-    _errorTextPasswordSignUp: state.signUpAuth.errorTextPasswordSignUp
+    _errorTextPasswordSignUp: state.signUpAuth.errorTextPasswordSignUp,
+
+    _errorTextPasswordLogin: state.auth.errorTextPasswordLogin,
+    _errorTextEmailLogin: state.auth.errorTextEmailLogin,
+
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -73,6 +85,7 @@ const mapDispatchToProps = dispatch => ({
     _onPasswordChange: event => dispatch(onPasswordChangeAction(event.target.value)),
     _onLoginClick: () => dispatch(onLoginClickAction()),
     _onLogOutAction: () => dispatch(onLogOutAction()),
+
     _onLogInByGoogleClickHandler: () => dispatch(onLogInByGoogleClickHandler()),
 
     _onEmailSignUpChangeAction: event => dispatch(onEmailSignUpChangeAction(event.target.value)),

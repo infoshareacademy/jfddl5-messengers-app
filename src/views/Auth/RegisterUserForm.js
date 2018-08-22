@@ -6,11 +6,11 @@ import Paper from 'material-ui/Paper'
 
 const RegisterUserForm = props => (
   <div>
-    <Paper>
-      <h1>{props.label}</h1>
+    <Paper >
+      <h2>{props.label}</h2>
       <div>
         <TextField
-          floatingLabelText="enter your e-mail here"
+          hintText="enter your e-mail here"
           value={props.emailValue}
           type={"email"}
           errorText={props.errorTextEmail}
@@ -19,7 +19,7 @@ const RegisterUserForm = props => (
       </div>
       <div>
         <TextField
-          floatingLabelText="Write your password here"
+          hintText="write your password here"
           value={props.passwordValue}
           type={"password"}
           errorText={props.errorTextPassword}

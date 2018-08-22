@@ -12,7 +12,6 @@ const reducer = combineReducers({
     channels,
     messageView,
     auth,
-   
     signUpAuth
 })
 
