@@ -2,15 +2,15 @@ import React from "react";
 
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
-import Paper from 'material-ui/Paper'
+
 
 const RegisterUserForm = props => (
   <div>
-    <Paper >
+    
       <h2>{props.label}</h2>
       <div>
         <TextField
-          hintText="enter your e-mail here"
+          hintText="enter your e-mail here to sign up"
           value={props.emailValue}
           type={"email"}
           errorText={props.errorTextEmail}
@@ -19,7 +19,7 @@ const RegisterUserForm = props => (
       </div>
       <div>
         <TextField
-          hintText="write your password here"
+          hintText="write your password here to sign up"
           value={props.passwordValue}
           type={"password"}
           errorText={props.errorTextPassword}
@@ -33,8 +33,8 @@ const RegisterUserForm = props => (
           onClick={props.onClickAction}
         />
       </div>
-    </Paper>
+    
   </div>
-);
+)
 
 export default RegisterUserForm;

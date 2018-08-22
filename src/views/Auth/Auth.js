@@ -18,7 +18,11 @@ import { onEmailSignUpChangeAction,onPasswordSignUpChangeAction,onSignUpClickAct
 const styles = {  
     margin: "20px,40px,20px, 40px",
     padding: "20px",
-    maxWidth: '40vw'
+    maxWidth: '40vw',  
+  }
+  const styles2 = {
+   
+    padding: "20px"
   }
 
 const Auth = (props) => (
@@ -32,7 +36,7 @@ const Auth = (props) => (
         </div>
         :
         <div>
-       
+            <Paper style={styles} >
             <LoginByEmailAndPassword
                 emailValue={props._emailValue}
                 onEmailChange={props._onEmailChange}
@@ -43,14 +47,17 @@ const Auth = (props) => (
                 errorTextEmail={props._errorTextEmailLogin}
 
             />
-        
-            <Paper style={styles} style={width_style}>
+        <div style={styles2}>
+
+        </div>
+           
             <RaisedButton
                         label="Login by google"
                         primary={true}
                         onClick={props._onLogInByGoogleClickHandler}
                     />
             </Paper>
+            <Paper style={styles} >
              <RegisterUserForm
                 onClickAction={props._onSignUpClickAction}
                 onPasswordChangeAction={props._onPasswordSignUpChangeAction}
@@ -61,6 +68,7 @@ const Auth = (props) => (
                 errorTextEmail={props._errorTextEmailSignUp}
                 label={"Sign Up"}
           />
+          </Paper>
         </div>
         
          
