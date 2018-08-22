@@ -1,5 +1,5 @@
 import { auth as firebaseAuth } from '../firebaseConfig'
-import { getMesseges } from './messageView'
+import { startChannelSync } from './messageView'
 
 const EMAIL_CHANGE = 'auth/EMAIL_CHANGE'
 const PASSWORD_CHANGE = 'auth/PASSWORD_CHANGE'
@@ -13,7 +13,7 @@ export const initAuthStateListening = () => (dispatch, getState) => {
     firebaseAuth.onAuthStateChanged(user => {
         dispatch(setUserAction(user))
         if (user) {
-            dispatch(getMesseges())
+            dispatch(startChannelSync())
             //here is a good place to dispatch after login actions
         } else {
             //here is good place to dispatch after logOut actions
