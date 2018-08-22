@@ -2,10 +2,12 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import navigation from './state/navigation'
 import channels, { initChannelsSync } from './state/channels'
+import messageView from './state/messageView'
 
 const reducer = combineReducers({
     navigation,
-    channels
+    channels,
+    messageView
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
