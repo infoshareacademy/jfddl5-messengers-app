@@ -45,7 +45,12 @@ export const onLogOutAction = () => (dispatch, getState) => {
 }
 export const onLoginClickAction = () => (dispatch, getState) => {
     const state = getState()
-
+    if(state.auth.email === ''){
+        dispatch(onEmptyEmailClick())
+    }
+    if( state.auth.password === ''){
+        dispatch(onEmptyPasswordClick())
+    }
     firebaseAuth.signInWithEmailAndPassword(
         state.auth.email,
         state.auth.password)
