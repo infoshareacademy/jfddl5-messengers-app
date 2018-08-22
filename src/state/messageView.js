@@ -1,40 +1,24 @@
+import {database} from '../firebaseConfig'
+
 
 const HANDLE_FAVOURITE = 'messageView/HANDLE_FAVOURITE'
 const SAVE_MESSAGES = 'messageView/SAVE_MESSAGES'
 
 export const saveMessagesAction = (data) => ({type: SAVE_MESSAGES, data})
 
-export const handleFavourite = (props, naszeId) => (dispatch, getState) => {
-    getMesseges()
-    const newArr = props.allMessages.filter((el) => {
-        return el.id === naszeId
-    })
-    const newArr1 =
-        newArr[0].favourite === true ?
-            newArr.map((el) => ({
-                id: el.id,
-                dateOfMessage: el.dateOfMessage,
-                favourite: false,
-                messageText: el.messageText,
-                userAvatar: el.userAvatar,
-                userId: el.userId
-            }))
-            :
-            newArr.map((el) => ({
-                id: el.id,
-                dateOfMessage: el.dateOfMessage,
-                favourite: true,
-                messageText: el.messageText,
-                userAvatar: el.userAvatar,
-                userId: el.userId
-            }))
+export const handleFavourite = id => (dispatch, getState) => {
+    const message = getState().messageView.allMessages.find(message => message.id === id)
 
     const request = {
         method: 'PATCH',
-        body: JSON.stringify(newArr1[0])
+        body: JSON.stringify({
+            favourite: !message.favourite
+        })
     }
-    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
-        .then(data => getMesseges())
+
+    console.log(message, request)
+    
+    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
 }
 
 export const getMesseges = (channelKey = '-LJUAF34bUu4jb-xz4wl') => (dispatch, getState) => {
