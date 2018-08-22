@@ -8,7 +8,7 @@ import {
     onLogOutAction
 } from '../../state/auth'
 import LoginByEmailAndPassword from './LoginByEmailAndPassword'
-
+import { onLogInByGoogleClickHandler } from '../../state/logInGoogleAuth'
 
 const Auth = (props) => (
     props._user ?
@@ -29,7 +29,15 @@ const Auth = (props) => (
                 onLoginClick={props._onLoginClick}
 
             />
+            <RaisedButton
+                        label="Login by google"
+                        primary={true}
+                        onClick={props._onLogInByGoogleClickHandler}
+                    />
+       
         </div>
+        
+         
 )
 const mapStateToProps = state => ({
     _emailValue: state.auth.email,
@@ -41,7 +49,8 @@ const mapDispatchToProps = dispatch => ({
     _onEmailChange: event => dispatch(onEmailChangeAction(event.target.value)),
     _onPasswordChange: event => dispatch(onPasswordChangeAction(event.target.value)),
     _onLoginClick: () => dispatch(onLoginClickAction()),
-    _onLogOutAction: () => dispatch(onLogOutAction())
+    _onLogOutAction: () => dispatch(onLogOutAction()),
+    _onLogInByGoogleClickHandler: () => dispatch(onLogInByGoogleClickHandler())
 })
 
 export default connect(
