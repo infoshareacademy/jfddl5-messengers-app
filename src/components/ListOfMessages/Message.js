@@ -45,13 +45,13 @@ const Message = (props) => (
               }}
             />
         }
-        primaryText="Brendan Lim"
+        primaryText="Grażyna Wróbel"
         secondaryText={
           <p>
             {props.text}
           </p>
         }
-        secondaryTextLines={2}
+        secondaryTextLines={1}
       />
       <Divider
         style={{ width: '80%' }}

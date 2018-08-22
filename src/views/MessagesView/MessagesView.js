@@ -2,6 +2,8 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
+import {connect} from 'react-redux'
+import {saveMessagesAction, handleFavourite, getMesseges} from '../../state/messageView'
 
 const displayStyles = {
     display: 'flex',
@@ -11,7 +13,6 @@ const displayStyles = {
 const style = {
     textAlign: 'center',
 }
-
 
 class MessagesView extends React.Component {
     state = {
@@ -26,60 +27,8 @@ class MessagesView extends React.Component {
         favouriteMessege: null
     }
 
-    handleFavourite = (naszeId) => {
-        this.getMesseges()
-        const newArr = this.state.allMessages.filter((el) => {
-            return el.id === naszeId
-        })
-        const newArr1 =
-            newArr[0].favourite === true ?
-                newArr.map((el) => ({
-                    id: el.id,
-                    dateOfMessage: el.dateOfMessage,
-                    favourite: false,
-                    messageText: el.messageText,
-                    userAvatar: el.userAvatar,
-                    userId: el.userId
-                })
-                )
-                :
-                newArr.map((el) => ({
-                    id: el.id,
-                    dateOfMessage: el.dateOfMessage,
-                    favourite: true,
-                    messageText: el.messageText,
-                    userAvatar: el.userAvatar,
-                    userId: el.userId
-                })
-                )
+    
 
-        const request = {
-            method: 'PATCH',
-            body: JSON.stringify(newArr1[0])
-        }
-        fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${naszeId}.json`, request)
-            .then(data => this.getMesseges())
-    }
-
-    getMesseges = () => {
-        const request = {
-            method: 'GET'
-        }
-        fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
-            .then(response => response.json())
-            .then(responseData => {
-                const newArr = Object.entries(responseData)
-                return newArr.map(el => (
-                    {
-                        id: el[0],
-                        ...el[1]
-                    }
-                ))
-            })
-            .then(data => this.setState({
-                allMessages: data
-            }))
-    }
 
     sendMessageText = () => {
         const request = {
@@ -87,7 +36,7 @@ class MessagesView extends React.Component {
             body: JSON.stringify(this.state.newMessage)
         }
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
-        this.getMesseges()
+        this.props.getMesseges()
     }
 
     handleChange = (event) => {
@@ -103,8 +52,8 @@ class MessagesView extends React.Component {
         })
     }
 
-    componentWillMount = () => {
-        this.getMesseges()
+    componentWillMount(){
+        this.props.getMesseges()
     }
 
     render() {
@@ -125,13 +74,24 @@ class MessagesView extends React.Component {
                 <div >
                     <ListOfMessages
                         style={style}
-                        handleFavourite={this.handleFavourite}
-                        allMessages={this.state.allMessages}
-                    />
+                        handleFavourite={this.props.handleFavourite}
+                        allMessages={this.props.allMessages}
+                        />
                 </div>
             </div>
         )
     }
 }
 
-export default MessagesView
+const mapStateToProps = state => ({
+    allMessages: state.messageView.allMessages,
+})
+
+const mapDispatchToProps = dispatch => ({
+    saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
+    handleFavourite: (id) => dispatch(handleFavourite(id)),
+    getMesseges: () => dispatch(getMesseges())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesView)

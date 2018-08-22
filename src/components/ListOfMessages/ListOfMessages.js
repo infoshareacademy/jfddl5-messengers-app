@@ -11,7 +11,7 @@ const MapMessages = ({ props, handleId }) => {
                     <Message
                         userAvatar={el.userAvatar}
                         handleId={handleId}
-                        handleFavourite={props.handleFavourite}
+                        handleFavourite={() => props.handleFavourite(el.id)}
                         text={el.messageText}
                         id={el.id}
                         favourite={el.favourite}
