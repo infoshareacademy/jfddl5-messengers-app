@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 import LastMessagesView from './views/LastMessagesView'
 import FindMessagesView from './views/FindMessagesView'
 import FavouritesMessagesView from './views/FavouritesMessagesView'
@@ -16,7 +15,6 @@ class App extends React.Component {
           <div>
             <Navigation />
             <Route path={'/contacts'} component={ContactsView} />
-           
             <Route path={'/last-messages'} component={LastMessagesView} />
             <Route path={'/find-messages'} component={FindMessagesView} />
             <Route path={'/favourite-messages'} component={FavouritesMessagesView} />

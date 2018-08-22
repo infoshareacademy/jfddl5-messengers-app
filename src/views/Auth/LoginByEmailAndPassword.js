@@ -1,9 +1,10 @@
 import React from 'react'
-
+import Paper from 'material-ui/Paper'
 
 const LoginByEmailAndPassword = (props) => (
 
     <div>
+    <Paper>
         <div>
             <input type="email" 
             value={props.emailValue}
@@ -22,6 +23,7 @@ const LoginByEmailAndPassword = (props) => (
                 LOGIN!
             </button>
         </div>
+        </Paper>
     </div>
 )
 

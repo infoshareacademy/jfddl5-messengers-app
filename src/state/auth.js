@@ -4,10 +4,13 @@ import { startChannelSync } from './messageView'
 const EMAIL_CHANGE = 'auth/EMAIL_CHANGE'
 const PASSWORD_CHANGE = 'auth/PASSWORD_CHANGE'
 const SET_USER = 'auth/SET_USER'
+export const CLEAR_STATE = "auth/CLEAR_STATE";
 
 export const onEmailChangeAction = value => ({ type: EMAIL_CHANGE, value })
 export const onPasswordChangeAction = value => ({ type: PASSWORD_CHANGE, value })
 export const setUserAction = user => ({ type: SET_USER, user })
+
+export const clearStateAction = () => ({ type: CLEAR_STATE });
 
 export const initAuthStateListening = () => (dispatch, getState) => {
     firebaseAuth.onAuthStateChanged(user => {
