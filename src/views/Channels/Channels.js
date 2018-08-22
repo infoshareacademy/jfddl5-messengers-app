@@ -14,7 +14,6 @@ const Channels = (props) => (
             mapObjectToArray(props._chanels).map(channel => (
                 <Link
                     key={channel.key}
-                    //  onClick={props.toggleHandler}
                     to={'/channels/' + channel.key}
                     style={{ textDecoration: 'none' }}
                 >
@@ -32,7 +31,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    // _setChannelsAction: () => dispatch(setChannelsAction(data))
 })
 
 export default connect(

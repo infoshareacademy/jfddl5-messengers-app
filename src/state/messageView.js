@@ -4,7 +4,7 @@ import { database } from '../firebaseConfig'
 const HANDLE_FAVOURITE = 'messageView/HANDLE_FAVOURITE'
 const SAVE_MESSAGES = 'messageView/SAVE_MESSAGES'
 
-export const saveMessagesAction = (data) => ({ type: SAVE_MESSAGES, data })
+export const saveMessagesAction = (data, channelKey) => ({ type: SAVE_MESSAGES, data, channelKey })
 
 export const handleFavourite = id => (dispatch, getState) => {
     const message = getState().messageView.allMessages.find(message => message.id === id)
@@ -21,22 +21,25 @@ export const handleFavourite = id => (dispatch, getState) => {
     fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
 }
 
-export const startChannelSync = (channelKey = '-LJUAF34bUu4jb-xz4wl') => (dispatch, getState) => {
+export const startChannelSync = (channelKey) => (dispatch, getState) => {
+    console.log(channelKey)
     database.ref(`/messeges/${channelKey}`).on(
         'value',
         (snapshot) => {
             const data = Object.entries(
-                snapshot.val()
-            ).map(el => (
-                {
-                    id: el[0],
-                    ...el[1]
-                }
-            ))
+                snapshot.val() || {}
+            ).map(el => ({
+                id: el[0],
+                ...el[1]
+            }))
 
-            dispatch(saveMessagesAction(data))
+            dispatch(saveMessagesAction(data, channelKey))
         }
     )
+}
+
+export const stopChannelSync = (channelKey = '-LJUAF34bUu4jb-xz4wl') => (dispatch, getState) => {
+    database.ref(`/messeges/${channelKey}`).off()
 }
 
 
@@ -64,7 +67,10 @@ export default (state = initialState, action) => {
         case SAVE_MESSAGES:
             return {
                 ...state,
-                allMessages: action.data
+                allMessages: {
+                    ...state.allMessages,
+                    [action.channelKey]: action.data
+                }
             }
         default:
             return state
