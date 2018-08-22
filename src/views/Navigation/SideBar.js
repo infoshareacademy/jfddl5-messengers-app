@@ -20,15 +20,7 @@ const SideBar = (props) => (
                 Kontakty
             </MenuItem>
         </Link>
-        <Link
-            onClick={props.toggleHandler}
-            to={'/messages'}
-            style={{ textDecoration: 'none' }}
-        >
-            <MenuItem>
-                Wiadomości
-            </MenuItem>
-        </Link>
+    
         <Link
             onClick={props.toggleHandler}
             to={'/last-messages'}
