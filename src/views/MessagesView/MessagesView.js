@@ -1,8 +1,9 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
+import {connect} from 'react-redux'
+import {saveMessagesAction, handleFavourite, getMesseges} from '../../state/messageView'
 
 const displayStyles = {
     display: 'flex',
@@ -12,7 +13,6 @@ const displayStyles = {
 const style = {
     textAlign: 'center',
 }
-
 
 class MessagesView extends React.Component {
     state = {
@@ -41,8 +41,7 @@ class MessagesView extends React.Component {
                     messageText: el.messageText,
                     userAvatar: el.userAvatar,
                     userId: el.userId
-                })
-                )
+                }))
                 :
                 newArr.map((el) => ({
                     id: el.id,
@@ -51,8 +50,7 @@ class MessagesView extends React.Component {
                     messageText: el.messageText,
                     userAvatar: el.userAvatar,
                     userId: el.userId
-                })
-                )
+                }))
 
         const request = {
             method: 'PATCH',
@@ -104,8 +102,8 @@ class MessagesView extends React.Component {
         })
     }
 
-    componentWillMount = () => {
-        this.getMesseges()
+    componentWillMount(){
+        this.props.getMesseges()
     }
 
     render() {
@@ -127,12 +125,23 @@ class MessagesView extends React.Component {
                     <ListOfMessages
                         style={style}
                         handleFavourite={this.handleFavourite}
-                        allMessages={this.state.allMessages}
-                    />
+                        allMessages={this.props.allMessages}
+                        />
                 </div>
             </div>
         )
     }
 }
 
-export default MessagesView
+const mapStateToProps = state => ({
+    allMessages: state.messageView.allMessages
+})
+
+const mapDispatchToProps = dispatch => ({
+    saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
+    handleFavourite: () => dispatch(handleFavourite()),
+    getMesseges: () => dispatch(getMesseges())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesView)

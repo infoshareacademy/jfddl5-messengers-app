@@ -6,8 +6,9 @@ import {
     onPasswordChangeAction,
     onLoginClickAction,
     onLogOutAction
-} from '../state/auth'
+} from '../../state/auth'
 import LoginByEmailAndPassword from './LoginByEmailAndPassword'
+
 
 const Auth = (props) => (
     props._user ?
@@ -15,7 +16,7 @@ const Auth = (props) => (
             <RaisedButton onClick={props._onLogOutAction}
             >
                 LOG OUT
-            </RaisedButton>
+    </RaisedButton>
             {props.children}
         </div>
         :
@@ -26,6 +27,7 @@ const Auth = (props) => (
                 passwordValue={props._passwordValue}
                 onPasswordChange={props._onPasswordChange}
                 onLoginClick={props._onLoginClick}
+
             />
         </div>
 )
@@ -42,5 +44,7 @@ const mapDispatchToProps = dispatch => ({
     _onLogOutAction: () => dispatch(onLogOutAction())
 })
 
-export default connect(mapStateToProps,
-    mapDispatchToProps)(Auth) 
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Auth)
