@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 import {connect} from 'react-redux'
-import {saveMessagesAction, handleFavourite, getMesseges} from '../../state/messageView'
+import {saveMessagesAction, handleFavourite, startChannelSync} from '../../state/messageView'
 
 const displayStyles = {
     display: 'flex',
@@ -36,7 +36,7 @@ class MessagesView extends React.Component {
             body: JSON.stringify(this.state.newMessage)
         }
         fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json', request)
-        this.props.getMesseges()
+        this.props.startChannelSync()
     }
 
     handleChange = (event) => {
@@ -53,7 +53,7 @@ class MessagesView extends React.Component {
     }
 
     componentWillMount(){
-        this.props.getMesseges()
+        this.props.startChannelSync()
     }
 
     render() {
@@ -90,7 +90,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
     handleFavourite: (id) => dispatch(handleFavourite(id)),
-    getMesseges: () => dispatch(getMesseges())
+    startChannelSync: () => dispatch(startChannelSync())
 })
 
 
