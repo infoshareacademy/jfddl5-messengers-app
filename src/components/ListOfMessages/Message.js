@@ -32,18 +32,14 @@ const Message = (props) => (
       <ListItem
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
-          props.favourite === true ?
-            <Favorite
-              onClick={() => {
-                props.handleId(props.id)
-              }}
-            />
-            :
-            <FavoriteBorder
-              onClick={() => {
-                props.handleId(props.id)
-              }}
-            />
+          <div
+            onClick={props.handleFavourite}
+          >
+            {props.favourite === true ?
+              <Favorite />
+              :
+              <FavoriteBorder />}
+          </div>
         }
         primaryText="Grażyna Wróbel"
         secondaryText={

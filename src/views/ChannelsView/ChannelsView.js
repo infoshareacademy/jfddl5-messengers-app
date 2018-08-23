@@ -57,6 +57,7 @@ class ChannelsView extends React.Component {
                         style={style}
                         handleFavourite={this.props.handleFavourite}
                         allMessages={this.props.allMessages[channelId]}
+                        channelId={channelId}
                     />
                 </div>
             </div>
@@ -70,7 +71,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
-    handleFavourite: (id) => dispatch(handleFavourite(id)),
+    handleFavourite: (channelId, id) => dispatch(handleFavourite(channelId, id)),
     startChannelSync: (channelId) => dispatch(startChannelSync(channelId)),
     stopChannelSync: (channelId) => dispatch(stopChannelSync(channelId))
 })

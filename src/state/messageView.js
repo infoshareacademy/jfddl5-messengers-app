@@ -6,8 +6,10 @@ const SAVE_MESSAGES = 'messageView/SAVE_MESSAGES'
 
 export const saveMessagesAction = (data, channelKey) => ({ type: SAVE_MESSAGES, data, channelKey })
 
-export const handleFavourite = id => (dispatch, getState) => {
-    const message = getState().messageView.allMessages.find(message => message.id === id)
+export const handleFavourite = (channelKey, id) => (dispatch, getState) => {
+    console.log(channelKey, id)
+
+    const message = getState().messageView.allMessages[channelKey].find(message => message.id === id)
 
     const request = {
         method: 'PATCH',
@@ -16,13 +18,10 @@ export const handleFavourite = id => (dispatch, getState) => {
         })
     }
 
-    console.log(message, request)
-
-    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
+    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/${channelKey}/${id}.json`, request)
 }
 
 export const startChannelSync = (channelKey) => (dispatch, getState) => {
-    console.log(channelKey)
     database.ref(`/messeges/${channelKey}`).on(
         'value',
         (snapshot) => {
