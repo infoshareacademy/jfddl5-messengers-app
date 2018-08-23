@@ -38,28 +38,41 @@ export const logUserLogIn = () => (dispatch, getState) => {
         userId: getState().auth.user.uid
     })
 }
+
 export const onLogOutAction = () => (dispatch, getState) => {
     firebaseAuth.signOut()
         .then(() => console.log('SIGN OUT OK'))
         .catch(() => console.log('SIGN OUT ERROR'))
 }
+
 export const onLoginClickAction = () => (dispatch, getState) => {
     const state = getState()
-    if(state.auth.email === ''){
+    if (state.auth.email === '') {
         dispatch(onEmptyEmailClick())
     }
-    if( state.auth.password === ''){
+    if (state.auth.password === '') {
         dispatch(onEmptyPasswordClick())
     }
     firebaseAuth.signInWithEmailAndPassword(
         state.auth.email,
-        state.auth.password)
+        state.auth.password
+    )
         .then(() => console.log('LOGIN OK'))
         .catch(function (error) {
             const errorMessage = error.message;
             alert(errorMessage)
         })
 }
+
+export const remindPasswordAction = () => (dispatch, getState) => {
+    firebaseAuth.sendPasswordResetEmail('xxx') // @TODO mail from state
+        .then(function () {
+            // Email sent.
+        }).catch(function (error) {
+            // An error happened.
+        })
+}
+
 const initialState = {
     email: '',
     password: '',
