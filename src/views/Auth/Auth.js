@@ -18,19 +18,18 @@ import { onEmailSignUpChangeAction,onPasswordSignUpChangeAction,onSignUpClickAct
 const styles = {  
     margin: "20px,40px,20px, 40px",
     padding: "20px",
-    maxWidth: '40vw',
   }
 
-  const toCenter = {
-     position: 'absolute',
-     right: '30vw',
-     left: '30vw',
-     top:'200px'
-  }
   const stylesSpace = {
     padding: "20px"
   }
-
+  const styleContainer = {
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      height:'100vh'
+  }
+ 
 const Auth = (props) => (
     props._user ?
         <div>
@@ -41,7 +40,8 @@ const Auth = (props) => (
             {props.children}
         </div>
         :
-        <div style={toCenter}>
+        <div style={styleContainer}>
+        <div >
             <Paper style={styles} >
             <LoginByEmailAndPassword
                 emailValue={props._emailValue}
@@ -75,6 +75,7 @@ const Auth = (props) => (
                 label={"Sign Up"}
           />
           </Paper>
+        </div>
         </div>
         
          
