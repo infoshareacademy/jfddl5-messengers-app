@@ -18,10 +18,16 @@ import { onEmailSignUpChangeAction,onPasswordSignUpChangeAction,onSignUpClickAct
 const styles = {  
     margin: "20px,40px,20px, 40px",
     padding: "20px",
-    maxWidth: '40vw',  
+    maxWidth: '40vw',
   }
-  const styles2 = {
-   
+
+  const toCenter = {
+     position: 'absolute',
+     right: '30vw',
+     left: '30vw',
+     top:'200px'
+  }
+  const stylesSpace = {
     padding: "20px"
   }
 
@@ -35,7 +41,7 @@ const Auth = (props) => (
             {props.children}
         </div>
         :
-        <div>
+        <div style={toCenter}>
             <Paper style={styles} >
             <LoginByEmailAndPassword
                 emailValue={props._emailValue}
@@ -47,7 +53,7 @@ const Auth = (props) => (
                 errorTextEmail={props._errorTextEmailLogin}
 
             />
-        <div style={styles2}>
+        <div style={stylesSpace}>
 
         </div>
            
