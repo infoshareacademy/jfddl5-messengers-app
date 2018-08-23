@@ -17,7 +17,7 @@ import { onEmailSignUpChangeAction,onPasswordSignUpChangeAction,onSignUpClickAct
 
 const styles = {  
     margin: "20px,40px,20px, 40px",
-    padding: "20px",
+    padding: "50px",
   }
 
   const stylesSpace = {
