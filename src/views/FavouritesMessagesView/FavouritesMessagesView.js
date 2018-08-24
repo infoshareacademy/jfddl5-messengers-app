@@ -33,7 +33,6 @@ class FavouritesMessagesView extends React.Component {
                     <ListOfMessages
                     allMessages={this.state.list}
                     />
-                    <h1>FavouritesMessagesView</h1>
                 </div>
             </div>
         )

@@ -4,7 +4,7 @@ import navigation from './state/navigation'
 import channels, { initChannelsSync } from './state/channels'
 import auth, {initAuthStateListening} from './state/auth'
 import messageView from './state/messageView'
-
+import sideBar from './state/sideBar'
 import signUpAuth from './state/signUpAuth'
 
 const reducer = combineReducers({
@@ -12,7 +12,8 @@ const reducer = combineReducers({
     channels,
     messageView,
     auth,
-    signUpAuth
+    signUpAuth,
+    sideBar
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
