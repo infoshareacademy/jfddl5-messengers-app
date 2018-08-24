@@ -29,7 +29,8 @@ export const startChannelSync = (channelKey) => (dispatch, getState) => {
                 snapshot.val() || {}
             ).map(el => ({
                 id: el[0],
-                ...el[1]
+                ...el[1],
+                channelKey
             }))
 
             dispatch(saveMessagesAction(data, channelKey))

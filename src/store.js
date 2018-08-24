@@ -1,7 +1,7 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import navigation from './state/navigation'
-import channels, { initChannelsSync } from './state/channels'
+import channels from './state/channels'
 import auth, {initAuthStateListening} from './state/auth'
 import messageView from './state/messageView'
 import sideBar from './state/sideBar'
@@ -25,4 +25,3 @@ export const store = createStore(
     )
 )
 store.dispatch(initAuthStateListening()) 
-store.dispatch(initChannelsSync())

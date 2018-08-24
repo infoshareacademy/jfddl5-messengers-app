@@ -1,5 +1,6 @@
 import { auth as firebaseAuth, database } from '../firebaseConfig'
 import { startChannelSync } from './messageView'
+import { initChannelsSync } from './channels'
 
 const EMAIL_CHANGE = 'auth/EMAIL_CHANGE'
 const PASSWORD_CHANGE = 'auth/PASSWORD_CHANGE'
@@ -22,7 +23,8 @@ export const initAuthStateListening = () => (dispatch, getState) => {
     firebaseAuth.onAuthStateChanged(user => {
         dispatch(setUserAction(user))
         if (user) {
-            dispatch(startChannelSync())
+            dispatch(initChannelsSync())
+            // dispatch(startChannelSync())
             dispatch(logUserLogIn())
             //here is a good place to dispatch after login actions
         } else {
@@ -45,10 +47,10 @@ export const onLogOutAction = () => (dispatch, getState) => {
 }
 export const onLoginClickAction = () => (dispatch, getState) => {
     const state = getState()
-    if(state.auth.email === ''){
+    if (state.auth.email === '') {
         dispatch(onEmptyEmailClick())
     }
-    if( state.auth.password === ''){
+    if (state.auth.password === '') {
         dispatch(onEmptyPasswordClick())
     }
     firebaseAuth.signInWithEmailAndPassword(
