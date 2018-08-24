@@ -1,18 +1,26 @@
-const SET_NEW_CHANNEL = 'SET_NEW_CHANNEL'
+import {database} from '../firebaseConfig'
 
-export default setNewChannel = () => ({
-    type: SET_NEW_CHANNEL
-})
+const HANDLE_CHANNEL_TEXT = 'sidebar/HANDLE_CHANNEL_TEXT'
 
-initialState = {
+export const handleChannelText = (text) => ({type: HANDLE_CHANNEL_TEXT, text})
+export const setNewChannel = () => (dispatch, getState) => (
+    database.ref(`chanels`).push({
+        isPriv: false,
+        name: getState().sideBar.newChannelText
+    })
+)
+
+const initialState = {
 
 }
 
 export default (state = initialState, action) => {
     switch(action.type){
-        case SET_NEW_CHANNEL:
+        case HANDLE_CHANNEL_TEXT:
         return {
-            ...state
+            ...state,
+            newChannelText: action.text
         }
     }
+    return state
 }

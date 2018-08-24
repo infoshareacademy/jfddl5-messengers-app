@@ -6,7 +6,8 @@ import Divider from 'material-ui/Divider'
 import Channels from '../Channels'
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import { connect } from 'tls';
+import { connect } from 'react-redux'
+import {setNewChannel, handleChannelText} from '../../state/sideBar'
 
 
 
@@ -50,14 +51,16 @@ const SideBar = (props) => (
         }}>
             <TextField
                 hintText="Nazwa kanału..."
+                onChange={(event)=>{props.handleChannelText(event.target.value)}}
             />
-            <FlatButton label="Dodaj" primary={true} onClick={() => { }} />
+            <FlatButton label="Dodaj" primary={true} onClick={props.setNewChannel} />
 
         </div>
     </Drawer>
 )
 const mapDispatchToProps = dispatch => ({
-    
+    setNewChannel: () => dispatch(setNewChannel()),
+    handleChannelText: (text) => dispatch(handleChannelText(text))
 })
 
 export default connect(null, mapDispatchToProps)(SideBar)
