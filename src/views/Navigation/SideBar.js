@@ -4,6 +4,12 @@ import Drawer from 'material-ui/Drawer'
 import { MenuItem } from 'material-ui'
 import Divider from 'material-ui/Divider'
 import Channels from '../Channels'
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import { connect } from 'react-redux'
+import {setNewChannel, handleChannelText} from '../../state/sideBar'
+
+
 
 const SideBar = (props) => (
     <Drawer
@@ -18,16 +24,6 @@ const SideBar = (props) => (
         >
             <MenuItem>
                 Kontakty
-            </MenuItem>
-        </Link>
-       
-        <Link
-            onClick={props.toggleHandler}
-            to={'/last-messages'}
-            style={{ textDecoration: 'none' }}
-        >
-            <MenuItem>
-                Ostatnie Wiadomości
             </MenuItem>
         </Link>
         <Link
@@ -50,7 +46,21 @@ const SideBar = (props) => (
         </Link>
         <Divider />
         <Channels />
+        <div style={{
+            display: 'flex', justifyContent: 'center', padding: '15px'
+        }}>
+            <TextField
+                hintText="Nazwa kanału..."
+                onChange={(event)=>{props.handleChannelText(event.target.value)}}
+            />
+            <FlatButton label="Dodaj" primary={true} onClick={props.setNewChannel} />
+
+        </div>
     </Drawer>
 )
+const mapDispatchToProps = dispatch => ({
+    setNewChannel: () => dispatch(setNewChannel()),
+    handleChannelText: (text) => dispatch(handleChannelText(text))
+})
 
-export default SideBar
+export default connect(null, mapDispatchToProps)(SideBar)
