@@ -45,11 +45,8 @@ class ChannelsView extends React.Component {
                         multiLine={true}
                         rowsMax={4}
                         fullWidth={true}
-                        // value={this.state.name}
-                        // onChange={this.handleChange}
                     />
                     <FlatButton label="Send" name='name'
-                        // onClick={this.sendMessageText}
                     />
                 </div>
                 <div >
