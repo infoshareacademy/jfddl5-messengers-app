@@ -54,6 +54,7 @@ class ChannelsView extends React.Component {
                     <ListOfMessages
                         style={style}
                         handleFavourite={this.props.handleFavourite}
+                        
                         allMessages={this.props.allMessages[channelId]}
                     />
                 </div>
