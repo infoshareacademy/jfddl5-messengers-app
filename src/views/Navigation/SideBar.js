@@ -4,6 +4,10 @@ import Drawer from 'material-ui/Drawer'
 import { MenuItem } from 'material-ui'
 import Divider from 'material-ui/Divider'
 import Channels from '../Channels'
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+
+
 
 const SideBar = (props) => (
     <Drawer
@@ -40,6 +44,15 @@ const SideBar = (props) => (
         </Link>
         <Divider />
         <Channels />
+        <div style={{
+            display: 'flex', justifyContent: 'center', padding: '20px'
+        }}>
+            <TextField
+                hintText="Nazwa kanału"
+            />
+            <FlatButton label="Dodaj" primary={true} />
+
+        </div>
     </Drawer>
 )
 
