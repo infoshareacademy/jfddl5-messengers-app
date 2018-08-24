@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import LastMessagesView from './views/LastMessagesView'
 import FindMessagesView from './views/FindMessagesView'
 import FavouritesMessagesView from './views/FavouritesMessagesView'
 import ContactsView from './views/ContactsView'
