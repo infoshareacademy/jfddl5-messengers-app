@@ -6,6 +6,7 @@ import Divider from 'material-ui/Divider'
 import Channels from '../Channels'
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import { connect } from 'tls';
 
 
 
@@ -45,15 +46,18 @@ const SideBar = (props) => (
         <Divider />
         <Channels />
         <div style={{
-            display: 'flex', justifyContent: 'center', padding: '20px'
+            display: 'flex', justifyContent: 'center', padding: '15px'
         }}>
             <TextField
-                hintText="Nazwa kanału"
+                hintText="Nazwa kanału..."
             />
-            <FlatButton label="Dodaj" primary={true} />
+            <FlatButton label="Dodaj" primary={true} onClick={() => { }} />
 
         </div>
     </Drawer>
 )
+const mapDispatchToProps = dispatch => ({
+    
+})
 
-export default SideBar
+export default connect(null, mapDispatchToProps)(SideBar)
