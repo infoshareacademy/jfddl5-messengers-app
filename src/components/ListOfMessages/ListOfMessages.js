@@ -16,6 +16,7 @@ const ListOfMessages = (props) => (
                     id={el.id}
                     favourite={el.favourite}
                     dateOfMessage={el.dateOfMessage}
+                    userName={el.userName}
                 />
             </div>
         ))

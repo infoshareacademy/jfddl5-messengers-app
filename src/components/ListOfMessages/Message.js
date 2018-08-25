@@ -41,7 +41,7 @@ const Message = (props) => (
               <FavoriteBorder />}
           </div>
         }
-        primaryText="Grażyna Wróbel"
+        primaryText={props.userName}
         secondaryText={
           <p>
             {props.text}
