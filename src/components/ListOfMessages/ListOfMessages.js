@@ -13,6 +13,7 @@ const MapMessages = (props) => (
                     id={el.id}
                     favourite={el.favourite}
                     dateOfMessage={el.dateOfMessage}
+                    userName={el.userName}
                 />
             </div>
         ))

@@ -40,7 +40,7 @@ const Message = (props) => (
             >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
           </IconMenu>
         }
-        primaryText="Grażyna Wróbel"
+        primaryText={props.userName}
         secondaryText={
           <p>
             {props.text}
