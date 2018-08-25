@@ -13,8 +13,9 @@ export const sendNewMessageText = (channelKey) => (dispatch, getState) => (
     dateOfMessage: Date.now(),
     favourite: false,
     messageText: getState().messageView.newMessageText,
-    userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
-    userId: 767678686778
+    userAvatar: getState().auth.user.photoURL ? getState().auth.user.photoURL : "https://randomuser.me/api/portraits/med/women/43.jpg",
+    userId: 767678686778,
+    userName: getState().auth.user.displayName
 })
 )
 
