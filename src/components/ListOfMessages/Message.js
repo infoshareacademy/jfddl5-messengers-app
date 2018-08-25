@@ -26,7 +26,6 @@ const Message = (props) => (
         dateOfMessage={props.dateOfMessage}
       />
       <ListItem
-
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
           <IconMenu iconButtonElement={iconButtonElement}>
