@@ -32,12 +32,10 @@ export const handleFavourite = id => (dispatch, getState) => {
         })
     }
 
-    console.log(message, request)
     fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
 }
 
 export const startChannelSync = (channelKey) => (dispatch, getState) => {
-    console.log(channelKey)
     database.ref(`/messeges/${channelKey}`).on(
         'value',
         (snapshot) => {

@@ -45,7 +45,6 @@ class ChannelsView extends React.Component {
 
     render() {
         const channelId = this.props.match.params.id
-        console.log('newmessage',this.props.newMessageText)
 
         return (
             <div>
