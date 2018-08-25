@@ -3,8 +3,20 @@ import { database } from '../firebaseConfig'
 
 const HANDLE_FAVOURITE = 'messageView/HANDLE_FAVOURITE'
 const SAVE_MESSAGES = 'messageView/SAVE_MESSAGES'
+const HANDLE_NEW_MESSAGE_TEST = 'messageView/HANDLE_NEW_MESSAGE_TEST'
 
 export const saveMessagesAction = (data, channelKey) => ({ type: SAVE_MESSAGES, data, channelKey })
+export const handleNewMessageText = (value) => ({ type: HANDLE_NEW_MESSAGE_TEST, value })
+
+export const sendNewMessageText = (channelKey) => (dispatch, getState) => (
+    database.ref(`/messeges/${channelKey}`).push({
+    dateOfMessage: Date.now(),
+    favourite: false,
+    messageText: getState().messageView.newMessageText,
+    userAvatar: "https://randomuser.me/api/portraits/med/women/43.jpg",
+    userId: 767678686778
+})
+)
 
 export const handleFavourite = (channelKey, id) => (dispatch, getState) => {
     console.log(channelKey, id)
@@ -18,7 +30,8 @@ export const handleFavourite = (channelKey, id) => (dispatch, getState) => {
         })
     }
 
-    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/${channelKey}/${id}.json`, request)
+    console.log(message, request)
+    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
 }
 
 export const startChannelSync = (channelKey) => (dispatch, getState) => {
@@ -71,6 +84,11 @@ export default (state = initialState, action) => {
                     ...state.allMessages,
                     [action.channelKey]: action.data
                 }
+            }
+        case HANDLE_NEW_MESSAGE_TEST:
+            return {
+                ...state,
+                newMessageText: action.value
             }
         default:
             return state

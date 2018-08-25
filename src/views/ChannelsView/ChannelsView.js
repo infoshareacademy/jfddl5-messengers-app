@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import ListOfMessages from '../../components/ListOfMessages/ListOfMessages'
 import { connect } from 'react-redux'
-import { saveMessagesAction, handleFavourite, startChannelSync, stopChannelSync } from '../../state/messageView'
+import { saveMessagesAction, handleFavourite, startChannelSync, stopChannelSync, handleNewMessageText, sendNewMessageText } from '../../state/messageView'
 
 const displayStyles = {
     display: 'flex',
@@ -45,14 +45,15 @@ class ChannelsView extends React.Component {
                         multiLine={true}
                         rowsMax={4}
                         fullWidth={true}
+                        onChange={(event)=>this.props.handleNewMessageText(event.target.value)}
                     />
-                    <FlatButton label="Send" name='name'
+                    <FlatButton label="Send" name='name' onClick={()=>this.props.sendNewMessageText(channelId)}
                     />
                 </div>
                 <div >
                     <ListOfMessages
                         style={style}
-                        handleFavourite={this.props.handleFavourite}
+                        handleFavourite={this.props.handleFavourite}            
                         allMessages={this.props.allMessages[channelId]}
                         channelId={channelId}
                     />
@@ -70,7 +71,9 @@ const mapDispatchToProps = dispatch => ({
     saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
     handleFavourite: (channelId, id) => dispatch(handleFavourite(channelId, id)),
     startChannelSync: (channelId) => dispatch(startChannelSync(channelId)),
-    stopChannelSync: (channelId) => dispatch(stopChannelSync(channelId))
+    stopChannelSync: (channelId) => dispatch(stopChannelSync(channelId)),
+    handleNewMessageText: (value) => dispatch(handleNewMessageText(value)),
+    sendNewMessageText: (channelId)=> dispatch(sendNewMessageText(channelId))
 })
 
 
