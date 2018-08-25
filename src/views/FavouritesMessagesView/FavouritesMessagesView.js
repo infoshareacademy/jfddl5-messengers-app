@@ -29,6 +29,7 @@ class FavouritesMessagesView extends React.Component {
 
     render() {
         const allMessages = this.props.allMessages && Object.values(this.props.allMessages).reduce((r, messagesFromOneChannel) => r.concat(messagesFromOneChannel), [])
+        const messagesFromOneChannel = messagesFromOneChannel.filter((messagesFromOneChannel)=> { return FavouritesMessagesView})
         //zrobić filtra
 
         console.log(allMessages)
