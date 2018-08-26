@@ -12,19 +12,30 @@ class FavouritesMessagesView extends React.Component {
         })
     }
 
-    componentWillReceiveProps(newProps) {
-        if (newProps.channels === this.props.channels) return
-
-        newProps.channels && Object.keys(newProps.channels).forEach(channelId => {
-            console.log(channelId)
-            this.props.startChannelSync(channelId)
-        })
-    }
-
-    componentWillUnmount() {
-        this.props.channels && Object.keys(this.props.channels).forEach(channelId => {
-            this.props.stopChannelSync(channelId)
-        })
+    componentDidMount() {
+        fetch('https://jfddl5-messengers.firebaseio.com/messeges.json')
+            .then(response => response.json())
+            .then(responseData => {
+                const newArr = Object.entries(responseData)
+                return newArr.map(el => (
+                    {
+                        ...el[1]
+                    }
+                ))
+            })
+            .then(data => data.map(el => Object.values(el)))
+            .then(data => {
+                const newArr = []
+                console.log(newArr.concat(...data))
+                return newArr.concat(...data)
+                
+            })
+            .then(newArrayData => newArrayData.filter(function (favo, index, array) {
+                return favo.favourite === true
+            }))
+            .then(data =>
+                this.setState({ list: data })
+            )
     }
 
     render() {

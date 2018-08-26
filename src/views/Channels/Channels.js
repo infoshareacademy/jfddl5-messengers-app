@@ -1,7 +1,7 @@
 import React from 'react'
 import { MenuItem } from 'material-ui'
 import { Link } from 'react-router-dom'
-
+import { toggleSidebarAction } from '../../state/navigation'
 import { connect } from 'react-redux'
 import { mapObjectToArray } from '../../utils'
 
@@ -13,11 +13,13 @@ const Channels = (props) => (
         {
             mapObjectToArray(props._chanels).map(channel => (
                 <Link
-                    key={channel.key}
-                    to={'/channels/' + channel.key}
-                    style={{ textDecoration: 'none' }}
+                key={channel.key}
+                to={'/channels/' + channel.key}
+                style={{ textDecoration: 'none' }}
                 >
-                    <MenuItem>
+                    <MenuItem
+                onClick={props.toggleSidebarAction}
+                    >
                         {channel.name}
                     </MenuItem>
                 </Link>
@@ -31,6 +33,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    toggleSidebarAction: () => dispatch(toggleSidebarAction())
 })
 
 export default connect(
