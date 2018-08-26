@@ -16,16 +16,21 @@ class FindMessagesView extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl.json')
+        fetch('https://jfddl5-messengers.firebaseio.com/messeges.json')
             .then(response => response.json())
             .then(responseData => {
                 const newArr = Object.entries(responseData)
                 return newArr.map(el => (
                     {
-                        id: el[0],
                         ...el[1]
                     }
                 ))
+            })
+            .then(data => data.map(el => Object.values(el)))
+            .then(data => {
+                const newArr = []
+                return newArr.concat(...data)
+                
             })
             .then(data => this.setState({
                 allMessages: data
