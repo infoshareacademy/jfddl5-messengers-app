@@ -11,7 +11,7 @@ const ListOfMessages = (props) => (
             <div style={styles} key={el.id}>
                 <Message
                     userAvatar={el.userAvatar}
-                    handleFavourite={() => props.handleFavourite(props.channelId, el.id)}
+                    handleFavourite={() => props.handleFavourite(el.channelKey, el.id)}
                     text={el.messageText}
                     id={el.id}
                     favourite={el.favourite}

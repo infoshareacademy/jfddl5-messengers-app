@@ -33,7 +33,7 @@ export const handleFavourite = (channelKey, id) => (dispatch, getState) => {
         })
     }
 
-    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/-LJUAF34bUu4jb-xz4wl/${id}.json`, request)
+    fetch(`https://jfddl5-messengers.firebaseio.com/messeges/${channelKey}/${id}.json`, request)
 }
 
 export const startChannelSync = (channelKey) => (dispatch, getState) => {
