@@ -53,6 +53,7 @@ const SideBar = (props) => (
                 hintText="Nazwa kanału..."
                 onChange={(event)=>{props.handleChannelText(event.target.value)}}
                 value={props.newChannelText}
+                name='new_channel_textField'
             />
             <FlatButton label="Dodaj" primary={true} onClick={props.setNewChannel} />
         </div>

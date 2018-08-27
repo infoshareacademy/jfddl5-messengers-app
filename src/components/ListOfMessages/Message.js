@@ -1,10 +1,12 @@
 import React from 'react'
-import { List, ListItem } from 'material-ui/List'
-import Divider from 'material-ui/Divider'
-import Avatar from 'material-ui/Avatar'
-import { grey400 } from 'material-ui/styles/colors'
-import IconButton from 'material-ui/IconButton'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import { grey400 } from 'material-ui/styles/colors';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import DateOfMessages from './DateOfMessages'
 import FontIcon from 'material-ui/FontIcon'
 import Favorite from 'material-ui/svg-icons/action/favorite'

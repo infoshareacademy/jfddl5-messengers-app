@@ -1,7 +1,6 @@
 import { database } from '../firebaseConfig'
 
 
-const HANDLE_FAVOURITE = 'messageView/HANDLE_FAVOURITE'
 const SAVE_MESSAGES = 'messageView/SAVE_MESSAGES'
 const HANDLE_NEW_MESSAGE_TEXT = 'messageView/HANDLE_NEW_MESSAGE_TEXT'
 const CLEAR_MESSAGE_INPUT = 'messageView/CLEAR_MESSAGE_INPUT'
