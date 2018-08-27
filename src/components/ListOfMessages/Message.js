@@ -8,6 +8,9 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import DateOfMessages from './DateOfMessages'
+import FontIcon from 'material-ui/FontIcon'
+import Favorite from 'material-ui/svg-icons/action/favorite'
+import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border'
 
 const iconButtonElement = (
   <IconButton
@@ -19,6 +22,9 @@ const iconButtonElement = (
   </IconButton>
 )
 
+const favoritesIcon = <FontIcon
+  className="material-icons">favorite</FontIcon>;
+
 const Message = (props) => (
   <div >
     <List >
@@ -28,16 +34,14 @@ const Message = (props) => (
       <ListItem
         leftAvatar={<Avatar src={props.userAvatar} />}
         rightIconButton={
-          <IconMenu iconButtonElement={iconButtonElement}>
-            <MenuItem>Reply</MenuItem>
-            <MenuItem>Forward</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem
-              onClick={() => {
-                props.handleId(props.id)
-              }}
-            >{props.favourite === true ? 'Unlike' : 'Like'}</MenuItem>
-          </IconMenu>
+          <div
+            onClick={props.handleFavourite}
+          >
+            {props.favourite === true ?
+              <Favorite />
+              :
+              <FavoriteBorder />}
+          </div>
         }
         primaryText={props.userName}
         secondaryText={

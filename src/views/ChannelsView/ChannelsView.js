@@ -78,7 +78,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     saveMessagesAction: (data) => dispatch(saveMessagesAction(data)),
-    handleFavourite: (id) => dispatch(handleFavourite(id)),
+    handleFavourite: (channelId, id) => dispatch(handleFavourite(channelId, id)),
     startChannelSync: (channelId) => dispatch(startChannelSync(channelId)),
     stopChannelSync: (channelId) => dispatch(stopChannelSync(channelId)),
     handleNewMessageText: (value) => dispatch(handleNewMessageText(value)),
