@@ -33,10 +33,6 @@ const styles = {
 const Auth = (props) => (
     props._user ?
         <div>
-        <RaisedButton onClick={props._onLogOutAction}
-            >
-                LOG OUT
-        </RaisedButton>
             {props.children}
         </div>
         :
