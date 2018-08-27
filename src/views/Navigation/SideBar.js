@@ -17,7 +17,7 @@ const SideBar = (props) => (
         onRequestChange={props.toggleHandler}
         docked={false}
     >
-        <Link
+        {/* <Link
             onClick={props.toggleHandler}
             to={'/contacts'}
             style={{ textDecoration: 'none' }}
@@ -25,7 +25,7 @@ const SideBar = (props) => (
             <MenuItem>
                 Kontakty
             </MenuItem>
-        </Link>
+        </Link> */}
         <Link
             onClick={props.toggleHandler}
             to={'/find-messages'}
