@@ -30,6 +30,9 @@ export default (state = initialState, action) => {
             ...state,
             newChannelText: initialState.newChannelText
         }
+        default:
+        return {
+            ...state
+        }
     }
-    return state
 }
