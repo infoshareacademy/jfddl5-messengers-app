@@ -12,7 +12,15 @@ class App extends React.Component {
         <Router>
           <div>
             <Navigation />
-            {/* <Route path={'/contacts'} component={ContactsView} /> */}
+            <Route path={'/'} component={() => (
+              <ChannelsView
+                match = {{
+                  params: {
+                    id: '-LJUAF34bUu4jb-xz4wl'
+                  }
+                }}
+              />
+            )} />
             <Route path={'/find-messages'} component={FindMessagesView} />
             <Route path={'/favourite-messages'} component={FavouritesMessagesView} />
             <Route path={'/channels/:id'} component={ChannelsView} />
