@@ -12,7 +12,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Navigation />
-            <Route path={'/'} component={() => (
+            <Route exact path={'/'} component={() => (
               <ChannelsView
                 match = {{
                   params: {
